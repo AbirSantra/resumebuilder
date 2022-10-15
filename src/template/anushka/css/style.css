@@ -1,0 +1,627 @@
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variables */
+:root {
+    --navbar-height: 30px;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: sticky;
+    width: 1440px;
+    height: 96px;
+    left: 0px;
+    top: 0px;
+}
+
+/* Navigation Bar */
+.navbar--logo {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 64px;
+    top: 32px;
+}
+
+.navbar--logoname1 {
+    position: absolute;
+    left: 104px;
+    top: 34px;
+
+    font-family: 'Open Sans';
+    font-size: 34px;
+    line-height: 33px;
+    color: black;
+}
+
+.navbar--logoname2 {
+    position: absolute;
+    left: 160px;
+    top: 35px;
+
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 33px;
+    color: #23272B;
+}
+
+.navbar--btn1 {
+    /* display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 9.6px 19.2px;
+    gap: 10px;
+
+    position: absolute;
+    width: 111.4px;
+    height: 38.2px;
+    left: 1200px;
+    top: 28px;
+
+    background: black;
+    border-radius: 8px; */
+    position: absolute;
+    width: 111.4px;
+    height: 38.2px;
+    left : 1200px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #6F42C1;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navbar--btn2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 9.6px 19.2px;
+    gap: 10px;
+
+    position: absolute;
+    width: 111.4px;
+    height: 38.2px;
+    left: 1200px;
+    top: 28px;
+
+    color: white;
+    background: #6F42C1;
+    border-radius: 8px;
+}
+
+/* Hero Section*/
+.hero h4 {
+    position: absolute;
+    width: 436px;
+    height: 112px;
+    left: 64px;
+    top: 250px;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 48px;
+    color: #000000;
+}
+
+.hero h6 {
+    position: absolute;
+    width: 186px;
+    height: 28px;
+    left: 64px;
+    top: 370px;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    color: #6F42C1;
+}
+
+.hero p {
+    position: absolute;
+    width: 648px;
+    height: 66px;
+    left: 64px;
+    top: 410px;
+
+    font-family: 'Open Sans', sans-serif;
+    color: #414952;
+}
+
+/* Button 3 */
+.hero--btn3 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px 32px;
+    gap: 10px;
+
+    position: absolute;
+    width: 274px;
+    height: 51px;
+    left: 64px;
+    top: 500px;
+
+    color:rgba(255, 255, 255, 1);
+    background: #6F42C1;
+    border-radius: 8px;
+}
+
+.hero--first-screen-webp {
+    position: absolute;
+    width: 580px;
+    height: 560px;
+    left: 700px;
+    top: 125px;
+}
+
+/* Why Choose Us ? */
+.whychooseus h5 {
+    position: absolute;
+    width: 371px;
+    height: 56px;
+    left: 542px;
+    top: 750px;
+
+    font-family: 'Raleway';
+    font-size: 40px;
+    color: #000000;
+}
+
+.whychooseus--Planning1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 269px;
+    top: 850px;
+}
+
+.whychooseus--checkmark1 {
+    position: absolute;
+    left: 720px;
+    top: 900px;
+}
+
+.whychoseus--useheading1 {
+    position: absolute;
+    left: 760px;
+    top: 900px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
+.whychooseus--usecontent1 {
+    position: absolute;
+    left: 760px;
+    top: 940px;
+
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: #000000;
+}
+
+.whychooseus--checkmark2 {
+    position: absolute;
+    left: 720px;
+    top: 1000px;
+}
+
+.whychoseus--useheading2 {
+    position: absolute;
+    left: 760px;
+    top: 1000px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+
+}
+
+.whychooseus--usecontent2 {
+    position: absolute;
+    left: 760px;
+    top: 1040px;
+
+    font-family: 'Open Sans';
+    color: #000000;
+}
+
+.whychooseus--checkmark3 {
+    position: absolute;
+    left: 720px;
+    top: 1100px;
+}
+
+.whychoseus--useheading3 {
+    position: absolute;
+    left: 760px;
+    top: 1100px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
+.whychooseus--usecontent3 {
+    position: absolute;
+    left: 760px;
+    top: 1140px;
+
+    font-family: 'Open Sans';
+    color: #000000;
+}
+
+/* Steps for the resume */
+.Perfectresume h5 {
+    position: absolute;
+    left: 371px;
+    top: 1500px;
+
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 48px;
+    color: rgba(255, 255, 255, 1);
+
+}
+
+.Perfectresume--backgroundimg {
+    position: absolute;
+    width: 100%;
+    height: 643px;
+    top: 1350px;
+    z-index: -10;
+    opacity: 1.0;
+}
+
+.Perfectresume--ellipse1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 258px;
+    top: 1650px;
+}
+
+.Perfectresume--layout1 {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 274px;
+    top: 1665px;
+}
+
+.Perfectresume--Step1 h6 {
+    position: absolute;
+    left: 198px;
+    top: 1760px;
+
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.Perfectresume--Step1 p {
+    position: absolute;
+    width: 247px;
+    height: 38px;
+    left: 175px;
+    top: 1790px;
+
+    font-family: 'Open Sans';
+    font-size: 14px;
+    text-align: center;
+    color: #B7A1E0;
+}
+
+.Perfectresume--ellipse2 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 679px;
+    top: 1650px;
+}
+
+.Perfectresume--layout2 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 701px;
+    top: 1670px;
+}
+
+.Perfectresume--Step2 h6 {
+    position: absolute;
+    left: 611px;
+    top: 1760px;
+
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.Perfectresume--Step2 p {
+    position: absolute;
+    width: 247px;
+    left: 596px;
+    top: 1790px;
+
+    font-family: 'Open Sans';
+    font-size: 14px;
+    text-align: center;
+    color: #B7A1E0;
+}
+
+.Perfectresume--ellipse3 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 1100px;
+    top: 1650px;
+}
+
+.Perfectresume--layout3 {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 1119px;
+    top: 1670px;
+}
+
+.Perfectresume--Step3 h6 {
+    position: absolute;
+    width: 213px;
+    left: 1034px;
+    top: 1760px;
+
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.Perfectresume--Step3 p {
+    position: absolute;
+    width: 247px;
+    left: 1017px;
+    top: 1790px;
+
+    font-family: 'Open Sans';
+    font-size: 14px;
+    text-align: center;
+    color: #B7A1E0;
+}
+
+/* Frequently Asked Questions  */
+.askedquestions--backgroundimg {
+    position: absolute;
+    width: 100%;
+    height: 757px;
+    top: 2000px;
+}
+
+.askedquestions--heading {
+    position: absolute;
+    height: 56px;
+    left: 399px;
+    top: 2100px;
+
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 48px;
+    color: #000000;
+}
+
+.askedquestion--question1 h6 {
+    position: absolute;
+    left: 40px;
+    top: 2275px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 20px;
+    color: #23272B;
+}
+
+.askedquestion--question1 p {
+    position: absolute;
+    left: 40px;
+    top: 2310px;
+
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: #414952;
+}
+
+.askedquestion--question2 h6 {
+    position: absolute;
+    left: 40px;
+    top: 2400px;
+
+    font-family: 'Open Sans';
+    /* font-style: normal; */
+    font-weight: 600;
+    font-size: 20px;
+    /* line-height: 27px; */
+
+    color: #23272B;
+}
+
+.askedquestion--question2 p {
+    position: absolute;
+    /* width: 1312px; */
+    /* height: 66px; */
+    left: 40px;
+    top: 2438px;
+
+    font-family: 'Open Sans';
+    /* font-style: normal; */
+    /* font-weight: 300; */
+    font-size: 16px;
+    /* line-height: 22px; */
+    /* letter-spacing: 0.02em; */
+
+    color: #414952;
+}
+
+.askedquestion--question3 h6 {
+    position: absolute;
+    /* width: 798px; */
+    /* height: 27px; */
+    left: 40px;
+    top: 2525px;
+
+    font-family: 'Open Sans';
+    /* font-style: normal; */
+    font-weight: 600;
+    font-size: 20px;
+    /* line-height: 27px; */
+
+    color: #23272B;
+}
+
+.askedquestion--question3 p {
+    position: absolute;
+    /* width: 1312px; */
+    /* height: 44px; */
+    left: 40px;
+    top: 2565px;
+
+    font-family: 'Open Sans';
+    /* font-style: normal; */
+    /* font-weight: 300; */
+    font-size: 16px;
+    /* line-height: 22px; */
+    /* letter-spacing: 0.02em; */
+
+    color: #414952;
+}
+
+/* Build Your Resume Now */
+.buildresume--backgroundimg {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    /* left: 0px; */
+    top: 2757px;
+}
+
+.buildresume--content {
+    position: absolute;
+    width: 1030px;
+    /* height: 225px; */
+    left: 150px;
+    top: 2885px;
+
+    font-family: 'Raleway';
+    /* font-style: normal; */
+    font-weight: 700;
+    font-size: 64px;
+    /* line-height: 75px; */
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}
+
+.buildresume--btn {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    /* padding: 16px 32px; */
+    /* gap: 10px; */
+
+    position: absolute;
+    /* width: 379px; */
+    /* height: 60px; */
+    left: 480px;
+    top: 3140px;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+/* Footer */
+.footer--background {
+    position: absolute;
+    /* width: 1440px; */
+    /* height: 50px; */
+    left: 0px;
+    top: 3280px;
+}
+
+.footer--logo {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 64px;
+    top: 3330px;
+}
+
+.footer--logoname1 {
+    position: absolute;
+    left: 104px;
+    top: 3330px;
+
+    font-family: 'Open Sans';
+    /* font-weight: 400; */
+    font-size: 24px;
+    line-height: 33px;
+    /* text-align: right; */
+
+    color: #FFFFFF;
+}
+
+.footer--logoname2 {
+    position: absolute;
+    /* width: 97px; */
+    /* height: 28px; */
+    left: 145px;
+    top: 3330px;
+
+    font-family: 'Raleway';
+    /* font-style: normal; */
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: #FFFFFF;
+}
+
+.footer--righthalf {
+    position: absolute;
+    /* width: 481px; */
+    /* height: 22px; */
+    left: 830px;
+    top: 3330px;
+
+    font-family: 'Open Sans';
+    /* font-style: normal; */
+    /* font-weight: 300; */
+    font-size: 16px;
+    /* line-height: 22px; */
+    /* identical to box height */
+
+    text-align: right;
+
+    color: #FFFFFF;
+}

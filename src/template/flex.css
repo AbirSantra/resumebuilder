@@ -40,3 +40,73 @@
 	align-items: center;
 	background-color: red;
 }
+
+.howitworks {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 4rem;
+	padding: 2rem;
+}
+
+.howitworks-header {
+	width: 100%;
+	max-width: 1440px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.howitworks-steps {
+	max-width: 1440px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+
+.howitworks-step {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 4rem;
+}
+
+.step-content {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.step-image {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.step-img {
+	border-radius: 2rem;
+	width: 350px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightgray;
+}
+
+.howitworks-steps:nth-child(even) > .step-image {
+	justify-content: flex-start;
+}
+.howitworks-steps:nth-child(even) > .step-content {
+	text-align: right;
+}

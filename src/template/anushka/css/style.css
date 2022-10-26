@@ -1,553 +1,464 @@
-/* CSS RESET */
-* {
-    margin: 0;
-    padding: 0;
+:root {
+  --lightblue: #e7f1f9;
+  --blue: #045CDC;
+  --white: #FFFFFF;
+  --grey: #545C6A;
+  --black: #1D1F20;
 }
 
-/* CSS Variables */
-:root {
-    --navbar-height: 30px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* Navigation Bar */
 .navbar {
-    position: sticky;
-    width: 1440px;
-    height: 96px;
-    left: 0px;
-    top: 0px;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--lightblue);
 }
 
-.navbar--logo {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 64px;
-    top: 32px;
+.navbar-content {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.navbar--logoname1 {
-    position: absolute;
-    left: 104px;
-    top: 34px;
-
-    font-family: 'Open Sans';
-    font-size: 34px;
-    line-height: 33px;
-    color: black;
+.navbar-logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 50px;
 }
 
-.navbar--logoname2 {
-    position: absolute;
-    left: 160px;
-    top: 35px;
-
-    font-family: 'Raleway';
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 33px;
-    color: #23272B;
+.navbar-logopic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar--btn1 {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-
-    position: absolute;
-    width: 111.4px;
-    height: 38.2px;
-    left : 1050px;
-
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    color: #6F42C1;
+.navbar-logoname {
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  padding-left: 10px;
+  font-family: 'Inter', normal;
 }
 
-.navbar--btn2 {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 9.6px 19.2px;
-    gap: 10px;
-
-    position: absolute;
-    width: 111.4px;
-    height: 38.2px;
-    left: 1200px;
-    top: 28px;
-
-    color: white;
-    background: #6F42C1;
-    border-radius: 8px;
+.navbar-logoname1 {
+  color: (#23272B, #23272B);
 }
 
-/* Hero Section*/
-.hero h4 {
-    position: absolute;
-    width: 436px;
-    height: 112px;
-    left: 64px;
-    top: 250px;
-
-    font-family: 'Raleway', sans-serif;
-    font-size: 48px;
-    color: #000000;
+.navbar-logoname2 {
+  color: var(--blue);
 }
 
-.hero h6 {
-    position: absolute;
-    width: 186px;
-    height: 28px;
-    left: 64px;
-    top: 370px;
-
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
-    color: #6F42C1;
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 1rem;
+  font-family: 'Inter', normal;
+}
+.navbar-link:hover {
+  color: var(--blue);
+  cursor:grabbing;
 }
 
-.hero p {
-    position: absolute;
-    width: 648px;
-    height: 66px;
-    left: 64px;
-    top: 410px;
-
-    font-family: 'Open Sans', sans-serif;
-    color: #414952;
+.navbar-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
 }
 
-.hero--btn3 {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 16px 32px;
-    gap: 10px;
-
-    position: absolute;
-    width: 274px;
-    height: 51px;
-    left: 64px;
-    top: 500px;
-
-    color:rgba(255, 255, 255, 1);
-    background: #6F42C1;
-    border-radius: 8px;
+.navbar-btncontent {
+  padding: 6px 20px;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  margin: 20px;
+  font-size: 1.0rem;
+  font-family: 'Inter', normal;
+  border-radius: 6px;
+  cursor: grabbing;
 }
 
-.hero--first-screen-webp {
-    position: absolute;
-    width: 580px;
-    height: 560px;
-    left: 700px;
-    top: 125px;
+/* Hero */
+.hero {
+  width: 100%;
+  height: 32.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 80px;
+  background: var(--lightblue);
 }
 
-/* Why Choose Us ? */
-.whychooseus h5 {
-    position: absolute;
-    width: 371px;
-    height: 56px;
-    left: 542px;
-    top: 750px;
-
-    font-family: 'Raleway';
-    font-size: 40px;
-    color: #000000;
+.hero-heading h1 {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', bold;
 }
 
-.whychooseus--Planning1 {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    left: 269px;
-    top: 850px;
+.hero-heading p {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 1rem;
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+  font-family: 'Inter', normal;
 }
 
-.whychooseus--checkmark1 {
-    position: absolute;
-    left: 720px;
-    top: 900px;
+.hero-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
 }
 
-.whychoseus--useheading1 {
-    position: absolute;
-    left: 760px;
-    top: 900px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 24px;
-    color: #000000;
+.hero-btncontent {
+  padding: 9px 30px;
+  background-color: var(--blue);
+  color: var(--white);
+  margin: 20px;
+  font-size: 1.0rem;
+  font-family: 'Inter', normal;
+  border-radius: 6px;
+  border-color: var(--blue);
+  cursor: grabbing;
 }
 
-.whychooseus--usecontent1 {
-    position: absolute;
-    left: 760px;
-    top: 940px;
-
-    font-family: 'Open Sans';
-    font-size: 16px;
-    color: #000000;
+.hero-img {
+  padding-top: 50px;
 }
 
-.whychooseus--checkmark2 {
-    position: absolute;
-    left: 720px;
-    top: 1000px;
+.hero-img img {
+  height: 406px;
 }
 
-.whychoseus--useheading2 {
-    position: absolute;
-    left: 760px;
-    top: 1000px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 24px;
-    color: #000000;
-
+/* Why Choose Resume */
+.whychoose {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.whychooseus--usecontent2 {
-    position: absolute;
-    left: 760px;
-    top: 1040px;
-
-    font-family: 'Open Sans';
-    color: #000000;
+.whychoose-heading {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25rem;
 }
 
-.whychooseus--checkmark3 {
-    position: absolute;
-    left: 720px;
-    top: 1100px;
+.whychoose-heading h1 {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', bold;
 }
 
-.whychoseus--useheading3 {
-    position: absolute;
-    left: 760px;
-    top: 1100px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 24px;
-    color: #000000;
+.whychoose-heading p {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 1rem;
+  display: flex;
+  padding-top: 15px;
+  justify-content: center;
+  font-family: 'Inter', normal;
 }
 
-.whychooseus--usecontent3 {
-    position: absolute;
-    left: 760px;
-    top: 1140px;
-
-    font-family: 'Open Sans';
-    color: #000000;
+.whychoose-boxs {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-/* Steps for the resume */
-.Perfectresume h5 {
-    position: absolute;
-    left: 330px;
-    top: 1500px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 48px;
-    color: rgba(255, 255, 255, 1);
-
+.whychoose-box1 {
+  display: flex;
+  flex-direction: column;
 }
 
-.Perfectresume--backgroundimg {
-    position: absolute;
-    width: 100%;
-    height: 643px;
-    top: 1350px;
-    z-index: -10;
-    opacity: 1.0;
+.whychoose-imgbox1 {
+  padding: 0.8rem;
+  background-color: #FF8F96;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: wrap;
+  justify-content: center;
 }
 
-.Perfectresume--ellipse1 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 258px;
-    top: 1650px;
+.whychoose-imgbox2 {
+  padding: 1.2rem;
+  background-color: #BCE67A;
 }
 
-.Perfectresume--layout1 {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    left: 274px;
-    top: 1665px;
+.whychoose-imgbox3 {
+  padding: 1.2rem;
+  background-color: #85C6EF;
 }
 
-.Perfectresume--Step1 h6 {
-    position: absolute;
-    left: 198px;
-    top: 1760px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 16px;
-    color: #FFFFFF;
+.whychoose-imgbox4 {
+  padding: 1.5rem;
+  background-color: #A48DC4;
 }
 
-.Perfectresume--Step1 p {
-    position: absolute;
-    width: 247px;
-    height: 38px;
-    left: 175px;
-    top: 1790px;
-
-    font-family: 'Open Sans';
-    font-size: 14px;
-    text-align: center;
-    color: #B7A1E0;
+.whychoose-box p {
+  padding-top: 1rem;
+  font-size: 1.0rem;
+  font-family: 'Inter', normal;
 }
 
-.Perfectresume--ellipse2 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 626px;
-    top: 1650px;
+/* How it Works */
+.howitworks {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 8rem;
 }
 
-.Perfectresume--layout2 {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 650px;
-    top: 1670px;
+.howitworks-heading {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10rem;
+  font-family: 'Inter', bold;
+}
+.howitworks-headercontent {
+  font-family: 'Inter', normal;
+  font-size: 1rem;
+  padding-top: 1rem;
 }
 
-.Perfectresume--Step2 h6 {
-    position: absolute;
-    left: 560px;
-    top: 1760px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 16px;
-    color: #FFFFFF;
+.howitworks-steps {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
-.Perfectresume--Step2 p {
-    position: absolute;
-    width: 247px;
-    left: 544px;
-    top: 1790px;
-
-    font-family: 'Open Sans';
-    font-size: 14px;
-    text-align: center;
-    color: #B7A1E0;
+.howitworks-step {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
 }
 
-.Perfectresume--ellipse3 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    left: 995px;
-    top: 1650px;
+.step-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.Perfectresume--layout3 {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 1014px;
-    top: 1670px;
+.step-image {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.Perfectresume--Step3 h6 {
-    position: absolute;
-    width: 213px;
-    left: 920px;
-    top: 1760px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 16px;
-    color: #FFFFFF;
+.step-img {
+  border-radius: 0.7rem;
+  width: 512px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
 }
 
-.Perfectresume--Step3 p {
-    position: absolute;
-    width: 247px;
-    left: 904px;
-    top: 1790px;
-
-    font-family: 'Open Sans';
-    font-size: 14px;
-    text-align: center;
-    color: #B7A1E0;
+.step-image1 {
+  justify-content: flex-start;
 }
 
-/* Frequently Asked Questions  */
-.askedquestions--backgroundimg {
-    position: absolute;
-    width: 100%;
-    height: 757px;
-    top: 2000px;
+.step-content1 {
+  text-align: right;
 }
 
-.askedquestions--heading {
-    position: absolute;
-    height: 56px;
-    left: 399px;
-    top: 2100px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 48px;
-    color: #000000;
+.step-num {
+  color: var(--blue);
+  font-family: 'Inter', normal;
 }
 
-.askedquestion--question1 h6 {
-    position: absolute;
-    left: 40px;
-    top: 2275px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 20px;
-    color: #23272B;
+.step-title {
+  font-size: 2rem;
+  font-family: 'Inter', bold;
 }
 
-.askedquestion--question1 p {
-    position: absolute;
-    left: 40px;
-    top: 2310px;
-
-    font-family: 'Open Sans';
-    font-size: 16px;
-    color: #414952;
+.step-desc {
+  font-family: 'Inter', normal;
+  padding-top: 0.3rem;
+}
+.step-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+}
+.step-btncontent {
+  padding: 9px 20px;
+  background-color: var(--blue);
+  color: var(--white);
+  margin: 20px;
+  font-size: 1.0rem;
+  font-family: 'Inter', normal;
+  border-radius: 6px;
+  border-color: var(--blue);
+  cursor: grabbing;
+}
+.step-btn1 {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.askedquestion--question2 h6 {
-    position: absolute;
-    left: 40px;
-    top: 2400px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 20px;
-    color: #23272B;
+/* Build Resume */
+.buildresume {
+  width: 100%;
+  height: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--blue);
+}
+.buildresume-header h5 {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', bold;
+  color: var(--white);
+}
+.buildresume-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+}
+.buildresume-btncontent {
+  padding: 9px 20px;
+  background-color: var(--white);
+  color: var(--blue);
+  margin: 20px;
+  font-size: 1.0rem;
+  font-family: 'Inter', normal;
+  border-color: var(--blue);
+  border-radius: 6px;
+  cursor: grabbing;
+}
+.buildresume-content {
+  color: var(--white);
 }
 
-.askedquestion--question2 p {
-    position: absolute;
-    left: 40px;
-    top: 2438px;
-
-    font-family: 'Open Sans';
-    font-size: 16px;
-    color: #414952;
+.logopos {
+  justify-content: flex-start;
+  color: var(--white);
 }
-
-.askedquestion--question3 h6 {
-    position: absolute;
-    left: 40px;
-    top: 2525px;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 20px;
-    color: #23272B;
+.devdetails {
+  width: 100%;
+  max-width: 1440px;
+  height: 28rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--black);
 }
-
-.askedquestion--question3 p {
-    position: absolute;
-    left: 40px;
-    top: 2565px;
-
-    font-family: 'Open Sans';
-    font-size: 16px;
-    color: #414952;
+.devdetails-content {
+  width: 100%;
+  max-width: 1440px;
+  font-size: 1rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  gap:10rem;
 }
-
-/* Build Your Resume Now */
-.buildresume--backgroundimg {
-    position: absolute;
-    width: 100%;
-    height: 600px;
-    top: 2757px;
+.devdetails-left {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
 }
-
-.buildresume--content {
-    position: absolute;
-    width: 1030px;
-    left: 150px;
-    top: 2885px;
-
-    font-family: 'Raleway';
-    font-weight: 700;
-    font-size: 64px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #FFFFFF;
+.logopos {
+  padding-left: 0rem;
 }
-
-.buildresume--btn {
-    position: absolute;
-    left: 480px;
-    top: 3140px;
-
-    background: #FFFFFF;
-    border-radius: 8px;
+.devdetails-left-content {
+  display: flex;
+  align-content: flex-start;
+  color: var(--white);
+  padding-top: 1rem;
+  font-family: 'Inter', normal;
+  
+}
+.devdetails-left-copyright {
+  display: flex;
+  align-content: flex-start;
+  color: var(--grey);
+  padding-top: 1rem;
+  font-family: 'Inter', normal;
+  font-size: 00.8rem;
+}
+.devdetails-right {
+  display: flex;
+  gap: 3rem;
+}
+.dev-rightbox-header {
+  color: var(--white);
+  font-family: 'Inter', normal;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
+.dev-rightbox-pnt {
+  color: var(--grey);
+  font-family: 'Inter', normal;
+  font-size: 0.8rem;
+  padding-top: 0.8rem;
 }
 
 /* Footer */
-.footer--background {
-    position: absolute;
-    left: 0px;
-    top: 3280px;
+.footer {
+  width: 100%;
+  max-width: 1440px;
+  background-color: var(--black);
+  color: var(--grey);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  font-family: 'Inter', normal;
+
 }
 
-.footer--logo {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 64px;
-    top: 3330px;
-}
-
-.footer--logoname1 {
-    position: absolute;
-    left: 104px;
-    top: 3330px;
-
-    font-family: 'Open Sans';
-    font-size: 24px;
-    line-height: 33px;
-    color: #FFFFFF;
-}
-
-.footer--logoname2 {
-    position: absolute;
-    left: 145px;
-    top: 3330px;
-
-    font-family: 'Raleway';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 33px;
-    color: #FFFFFF;
-}
-
-.footer--righthalf {
-    position: absolute;
-    left: 830px;
-    top: 3330px;
-
-    font-family: 'Open Sans';
-    font-size: 16px;
-    text-align: right;
-    color: #FFFFFF;
-}

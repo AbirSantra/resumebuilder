@@ -9,6 +9,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Navigation Bar */
@@ -45,10 +46,10 @@
 
 .navbar-logoname {
   display: flex;
-  font-size: 2rem;
   justify-content: center;
   padding-left: 10px;
-  font-family: 'Inter', normal;
+  font-weight: 700;
+  font-size: 1.7rem;
 }
 
 .navbar-logoname1 {
@@ -64,11 +65,12 @@
   justify-content: center;
   gap: 25px;
   font-size: 1rem;
-  font-family: 'Inter', normal;
+  font-weight: 500;
 }
+
 .navbar-link:hover {
   color: var(--blue);
-  cursor:grabbing;
+  cursor: pointer;
 }
 
 .navbar-btn {
@@ -79,14 +81,16 @@
 }
 
 .navbar-btncontent {
+  border: none;
+  outline: none;
   padding: 6px 20px;
-  border: 2px solid var(--blue);
+  border: 1px solid var(--blue);
   color: var(--blue);
   margin: 20px;
-  font-size: 1.0rem;
-  font-family: 'Inter', normal;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 6px;
-  cursor: grabbing;
+  cursor: pointer;
 }
 
 /* Hero */
@@ -107,7 +111,7 @@
   font-size: 3rem;
   display: flex;
   justify-content: center;
-  font-family: 'Inter', bold;
+  font-weight: 800;
 }
 
 .hero-heading p {
@@ -117,7 +121,7 @@
   display: flex;
   padding-top: 20px;
   justify-content: center;
-  font-family: 'Inter', normal;
+  font-weight: 500;
 }
 
 .hero-btn {
@@ -128,15 +132,16 @@
 }
 
 .hero-btncontent {
+  border: none;
+  outline: none;
   padding: 9px 30px;
   background-color: var(--blue);
   color: var(--white);
   margin: 20px;
-  font-size: 1.0rem;
-  font-family: 'Inter', normal;
+  font-size: 0.8rem;
+  font-weight: 600;
   border-radius: 6px;
-  border-color: var(--blue);
-  cursor: grabbing;
+  cursor: pointer;
 }
 
 .hero-img {
@@ -173,7 +178,7 @@
   font-size: 3rem;
   display: flex;
   justify-content: center;
-  font-family: 'Inter', bold;
+  font-weight: 800;
 }
 
 .whychoose-heading p {
@@ -183,7 +188,7 @@
   display: flex;
   padding-top: 15px;
   justify-content: center;
-  font-family: 'Inter', normal;
+  font-weight: 500;
 }
 
 .whychoose-boxs {
@@ -225,8 +230,8 @@
 
 .whychoose-box p {
   padding-top: 1rem;
-  font-size: 1.0rem;
-  font-family: 'Inter', normal;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 /* How it Works */
@@ -243,16 +248,17 @@
 .howitworks-heading {
   width: 100%;
   max-width: 1440px;
-  font-size: 2rem;
+  font-size: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding-top: 10rem;
-  font-family: 'Inter', bold;
+  font-weight: 800;
 }
+
 .howitworks-headercontent {
-  font-family: 'Inter', normal;
+  font-weight: 500;
   font-size: 1rem;
   padding-top: 1rem;
 }
@@ -311,35 +317,42 @@
 
 .step-num {
   color: var(--blue);
-  font-family: 'Inter', normal;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .step-title {
   font-size: 2rem;
-  font-family: 'Inter', bold;
+  font-weight: 700;
 }
 
 .step-desc {
-  font-family: 'Inter', normal;
+  font-weight: 300;
+  font-size: 0.8rem;
   padding-top: 0.3rem;
 }
+
 .step-btn {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-top: 5px;
+  padding-left: 0px;
 }
+
 .step-btncontent {
+  border: none;
+  outline: none;
   padding: 9px 20px;
   background-color: var(--blue);
   color: var(--white);
   margin: 20px;
-  font-size: 1.0rem;
-  font-family: 'Inter', normal;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 6px;
-  border-color: var(--blue);
-  cursor: grabbing;
+  cursor: pointer;
 }
+
 .step-btn1 {
   display: flex;
   justify-content: flex-end;
@@ -355,40 +368,48 @@
   align-items: center;
   background: var(--blue);
 }
+
 .buildresume-header h5 {
   width: 100%;
   max-width: 1440px;
-  font-size: 3rem;
+  font-size: 2.5rem;
   display: flex;
   justify-content: center;
-  font-family: 'Inter', bold;
+  font-weight: 800;
   color: var(--white);
 }
+
 .buildresume-btn {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-top: 5px;
 }
+
 .buildresume-btncontent {
+  border: none;
+  outline: none;
   padding: 9px 20px;
   background-color: var(--white);
   color: var(--blue);
   margin: 20px;
-  font-size: 1.0rem;
-  font-family: 'Inter', normal;
-  border-color: var(--blue);
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 6px;
-  cursor: grabbing;
+  cursor: pointer;
 }
+
 .buildresume-content {
   color: var(--white);
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
 .logopos {
   justify-content: flex-start;
   color: var(--white);
 }
+
 .devdetails {
   width: 100%;
   max-width: 1440px;
@@ -398,6 +419,7 @@
   align-items: center;
   background: var(--black);
 }
+
 .devdetails-content {
   width: 100%;
   max-width: 1440px;
@@ -405,45 +427,53 @@
   display: flex;
   align-items: stretch;
   justify-content: space-evenly;
-  gap:10rem;
+  gap: 10rem;
 }
+
 .devdetails-left {
   display: flex;
   flex-direction: column;
   align-content: flex-start;
 }
+
 .logopos {
   padding-left: 0rem;
 }
+
 .devdetails-left-content {
   display: flex;
   align-content: flex-start;
   color: var(--white);
   padding-top: 1rem;
-  font-family: 'Inter', normal;
-  
+  font-weight: 400;
+  font-size: 1rem;
+
 }
+
 .devdetails-left-copyright {
   display: flex;
   align-content: flex-start;
   color: var(--grey);
   padding-top: 1rem;
-  font-family: 'Inter', normal;
-  font-size: 00.8rem;
+  font-weight: 400;
+  font-size: 0.8rem;
 }
+
 .devdetails-right {
   display: flex;
   gap: 3rem;
 }
+
 .dev-rightbox-header {
   color: var(--white);
-  font-family: 'Inter', normal;
+  font-weight: 700;
   font-size: 1rem;
   padding-bottom: 1rem;
 }
+
 .dev-rightbox-pnt {
   color: var(--grey);
-  font-family: 'Inter', normal;
+  font-weight: 400;
   font-size: 0.8rem;
   padding-top: 0.8rem;
 }
@@ -458,7 +488,7 @@
   align-content: center;
   justify-content: center;
   padding-bottom: 2rem;
-  font-family: 'Inter', normal;
+  font-weight: 400;
+  font-size: 0.8rem;
 
 }
-

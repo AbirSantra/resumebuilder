@@ -9,7 +9,7 @@
 	}
 
 	body {
-		@apply font-Inter text-black-one scroll-smooth ease-in-out duration-300;
+		@apply font-Inter text-black-two scroll-smooth ease-in-out duration-300;
 	}
 }
 

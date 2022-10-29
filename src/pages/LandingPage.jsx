@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../containers/Hero";
 import WhyChooseUs from "../containers/WhyChooseUs";
 import Steps from "../containers/Steps";
+import CTA from "../containers/CTA";
 
 const LandingPage = () => {
 	return (
@@ -9,6 +10,7 @@ const LandingPage = () => {
 			<Hero />
 			<WhyChooseUs />
 			<Steps />
+			<CTA />
 		</div>
 	);
 };

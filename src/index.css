@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply scroll-smooth box-border;
+	}
+
+	body {
+		@apply font-Inter text-black-two scroll-smooth ease-in-out duration-300;
+	}
+}
+
+@layer components {
+	.btn {
+		@apply font-semibold rounded-lg px-6 py-3 border flex justify-center items-center gap-2;
+	}
+
+	.primary--btn {
+		@apply text-white-one bg-primary hover:bg-primary-dark ease-in-out duration-300;
+	}
+
+	.primary--btn--inverted {
+		@apply text-primary bg-white-one border-white-one hover:bg-white-two hover:border-white-two ease-in-out duration-300;
+	}
+
+	.secondary--btn {
+		@apply text-primary border-primary hover:text-white-one hover:bg-primary ease-in-out duration-300;
+	}
+
+	.secondary--btn--inverted {
+		@apply text-white-one hover:text-white-two  border-white-one hover:border-white-two ease-in-out duration-300;
+	}
+}
+
+@layer utilities {
+	.section {
+		@apply w-full max-w-[1440px] px-4 sm:px-8 lg:px-16;
+	}
+
+	.image {
+		@apply flex justify-center items-center;
+	}
+
+	.navbar--link {
+		@apply font-medium text-grey-three hover:text-primary ease-in duration-300;
+	}
+
+	.navbar--link--active {
+		@apply text-primary;
+	}
+
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	::-webkit-scrollbar-track {
+		border-radius: 100vh;
+		background: none;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #045cdc;
+		border-radius: 100vh;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #61abee;
+	}
+}

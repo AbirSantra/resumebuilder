@@ -12,6 +12,7 @@ module.exports = {
 			"grey-one": "#363c44",
 			"grey-two": "#414952",
 			"grey-three": "#545c6a",
+			"grey-four": "#d6d6d6",
 			primary: "#045cdc",
 			"primary-dark": "#1c4393",
 			"primary-light": "#61abee",

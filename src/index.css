@@ -52,6 +52,10 @@
 		@apply text-primary;
 	}
 
+	.auth--form--input:focus-within {
+		@apply border-primary ease-in-out duration-300;
+	}
+
 	::-webkit-scrollbar {
 		width: 6px;
 	}

@@ -7,9 +7,15 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 				url: `/resume/${id}`,
 				method: "GET",
 			}),
-			keepUnusedDataFor: 2,
+		}),
+		getUserResume: builder.query({
+			query: (id) => ({
+				url: `/resume/user/${id}`,
+				method: "GET",
+			}),
+			invalidatesTags: ["Resumes"],
 		}),
 	}),
 });
 
-export const { useGetResumeQuery } = resumeApiSlice;
+export const { useGetResumeQuery, useGetUserResumeQuery } = resumeApiSlice;

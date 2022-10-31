@@ -7,6 +7,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
 				url: `/user/${id}`,
 				method: "GET",
 			}),
+			keepUnusedDataFor: 5,
 			providesTags: ["User"],
 		}),
 		registerUser: builder.mutation({

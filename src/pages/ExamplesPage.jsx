@@ -1,7 +1,7 @@
 import React from "react";
 
 const ExamplesPage = () => {
-	return <div>ExamplesPage</div>;
+	return <div className="min-h-screen">ExamplesPage</div>;
 };
 
 export default ExamplesPage;

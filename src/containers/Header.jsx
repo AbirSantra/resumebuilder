@@ -126,7 +126,7 @@ const Header = ({ step, setStep }) => {
 					/>
 					<InputControl
 						type="text"
-						label="Wanted Job Title"
+						label="Job Title"
 						placeholder="e.g. Web Developer"
 						value={profession}
 						onChange={professionChange}

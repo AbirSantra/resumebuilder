@@ -130,7 +130,7 @@ const Skills = ({ setStep }) => {
 						Back
 					</button>
 					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Skills
+						Next: Projects
 					</button>
 				</div>
 			</div>

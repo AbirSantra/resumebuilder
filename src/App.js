@@ -10,6 +10,7 @@ import Footer from "./containers/Footer";
 import Dashboard from "./pages/Dashboard";
 import AuthPage from "./pages/AuthPage";
 import { useSelector } from "react-redux";
+import Editor from "./pages/Editor";
 
 function App() {
 	// get access token from store
@@ -31,6 +32,10 @@ function App() {
 				<Route
 					path="/dashboard"
 					element={token ? <Dashboard /> : <Navigate to="/auth" replace />}
+				/>
+				<Route
+					path="/editor/:id"
+					element={token ? <Editor /> : <Navigate to="/auth" replace />}
 				/>
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>

@@ -18,6 +18,9 @@ const Education = ({ setStep }) => {
 		setEducations(headerData);
 	}, [headerData]);
 
+	// to store form open/close state
+	const [form, setForm] = useState(false);
+
 	// to store the form fields
 	const [institute, setInsitute] = useState("");
 	const [degree, setDegree] = useState("");
@@ -42,7 +45,20 @@ const Education = ({ setStep }) => {
 		setScore(e.target.value);
 	};
 
-	console.log(start);
+	//! to set form
+	const openForm = () => {
+		setForm(true);
+	};
+
+	//! to reset form
+	const resetForm = () => {
+		setInsitute("");
+		setDegree("");
+		setStart("");
+		setEnd("");
+		setScore("");
+		setForm(false);
+	};
 
 	//! to add new education
 	const addEducation = () => {
@@ -57,6 +73,7 @@ const Education = ({ setStep }) => {
 			},
 		];
 		setEducations(newEducations);
+		resetForm();
 	};
 
 	//! to handle back button
@@ -74,7 +91,7 @@ const Education = ({ setStep }) => {
 
 	return (
 		<div className="education w-full">
-			<div className="education--container w-full flex flex-col justify-center items-start gap-8">
+			<div className="education--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
 				<div className="header--heading">
 					<h1 className="header--title font-bold text-3xl text-primary">
 						Education
@@ -86,87 +103,96 @@ const Education = ({ setStep }) => {
 				</div>
 
 				<div className="education--list w-full flex flex-col justify-start items-start gap-4">
-					{educations.map((education) => {
-						return (
-							<div
-								className="education--card w-full flex justify-between items-center rounded-lg p-4 px-8 border border-grey-four"
-								key={education.institute}
-							>
-								<div className="card--content w-full flex flex-col justify-start items-start gap-1 ">
-									<h1 className="card--institute font-semibold text-lg">
-										{education.institute}
-									</h1>
-									<p className="card--degree italic text-grey-three text-sm">
-										{education.degree} &#40;{education.startdate} to{" "}
-										{education.enddate}&#41;
-									</p>
-									<p className="card--score text-primary font-semibold text-sm">
-										Score: {education.score}
-									</p>
-								</div>
-								<div
-									className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
-									onClick={() => {
-										const newList = [...educations];
-										newList.splice(
-											newList.findIndex((item) => item._id === education._id),
-											1
-										);
-										setEducations(newList);
-									}}
-								>
-									<FiTrash2 size={24} />
-									Delete
-								</div>
+					{educations.map((education) => (
+						<div
+							className="education--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four"
+							key={education.institute}
+						>
+							<div className="card--content w-full flex flex-col justify-start items-start ">
+								<p className="card--institute font-semibold ">
+									{education.institute}
+								</p>
+								<p className="card--degree text-grey-three ">
+									{education.degree} &#40;{education.startdate} to{" "}
+									{education.enddate}&#41;
+								</p>
+								<p className="card--score text-primary font-semibold ">
+									Score: {education.score}
+								</p>
 							</div>
-						);
-					})}
+							<div
+								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
+								onClick={() => {
+									const newList = [...educations];
+									newList.splice(
+										newList.findIndex((item) => item._id === education._id),
+										1
+									);
+									setEducations(newList);
+								}}
+							>
+								<FiTrash2 size={24} />
+							</div>
+						</div>
+					))}
 				</div>
-				<div className="education--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-8">
-					<h1 className="education--title font-semibold text-lg">
-						Add New Education
-					</h1>
-					<div className="education--form w-full  grid grid-cols-2 gap-x-4 gap-y-8 ">
-						<InputControl
-							type="text"
-							label="Institute"
-							placeholder="e.g Example Institute of Technology"
-							value={institute}
-							onChange={instituteChange}
-						/>
-						<InputControl
-							type="text"
-							label="Degree"
-							placeholder="e.g BTech in Information Technology"
-							value={degree}
-							onChange={degreeChange}
-						/>
-						<div className="w-full flex justify-center items-center gap-4">
+				{!form && educations.length !== 0 && (
+					<div
+						className="education--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
+						onClick={openForm}
+					>
+						<div className="card--content w-full flex flex-col justify-start items-start ">
+							<p className="card--institute font-semibold ">+ Add Education</p>
+						</div>
+					</div>
+				)}
+				{(form || educations.length === 0) && (
+					<div className="education--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-8 ">
+						<h1 className="education--title font-semibold text-lg">
+							Add New Education
+						</h1>
+						<div className="education--form w-full  grid grid-cols-2 gap-x-4 gap-y-8 ">
 							<InputControl
-								type="month"
-								label="Start Date"
-								value={start}
-								onChange={startChange}
+								type="text"
+								label="Institute"
+								placeholder="e.g Example Institute of Technology"
+								value={institute}
+								onChange={instituteChange}
 							/>
 							<InputControl
-								type="month"
-								label="End Date"
-								value={end}
-								onChange={endChange}
+								type="text"
+								label="Degree"
+								placeholder="e.g BTech in Information Technology"
+								value={degree}
+								onChange={degreeChange}
+							/>
+							<div className="w-full flex justify-center items-center gap-4">
+								<InputControl
+									type="month"
+									label="Start Date"
+									value={start}
+									onChange={startChange}
+								/>
+								<InputControl
+									type="month"
+									label="End Date"
+									value={end}
+									onChange={endChange}
+								/>
+							</div>
+							<InputControl
+								type="text"
+								label="Score"
+								placeholder="e.g 95% or 9.5"
+								value={score}
+								onChange={scoreChange}
 							/>
 						</div>
-						<InputControl
-							type="text"
-							label="Score"
-							placeholder="e.g 95% or 9.5"
-							value={score}
-							onChange={scoreChange}
-						/>
+						<button className="btn secondary--btn mt-4" onClick={addEducation}>
+							+ Add Education
+						</button>
 					</div>
-					<button className="btn secondary--btn mt-4" onClick={addEducation}>
-						+ Add Education
-					</button>
-				</div>
+				)}
 
 				<div className="education--buttons w-full flex justify-between items-center">
 					<button className="prev btn secondary--btn" onClick={handleBack}>

@@ -198,7 +198,7 @@ const Experience = ({ setStep }) => {
 					</div>
 				)}
 
-				<div className="education--buttons w-full flex justify-between items-center">
+				<div className="experience--buttons w-full flex justify-between items-center">
 					<button className="prev btn secondary--btn" onClick={handleBack}>
 						Back
 					</button>

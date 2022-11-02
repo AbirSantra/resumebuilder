@@ -16,7 +16,6 @@ const Header = ({ step, setStep }) => {
 	// to store the form fields
 	const [firstname, setFirstname] = useState("");
 	const [lastname, setLastname] = useState("");
-	const [middlename, setMiddleName] = useState("");
 	const [profession, setProfession] = useState("");
 	const [city, setCity] = useState("");
 	const [country, setCountry] = useState("");
@@ -30,7 +29,6 @@ const Header = ({ step, setStep }) => {
 	useEffect(() => {
 		setFirstname(headerData.firstname);
 		setLastname(headerData.lastname);
-		setMiddleName(headerData.middlename);
 		setProfession(headerData.profession);
 		setCity(headerData.city);
 		setCountry(headerData.country);

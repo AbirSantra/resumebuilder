@@ -65,10 +65,7 @@ const Editor = () => {
 
 	return (
 		<div className="editor w-full flex justify-center items-center">
-			<div className="editor--container section py-28 flex flex-col justify-center items-center gap-8">
-				<h1 className="editor--header w-full font-bold text-4xl">
-					Resume Editor
-				</h1>
+			<div className="editor--container section py-16 flex flex-col justify-center items-center gap-16">
 				<div className="editor--body w-full flex justify-center items-center">
 					{editorBody()}
 				</div>

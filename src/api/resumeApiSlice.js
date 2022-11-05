@@ -18,7 +18,7 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 				url: `/resume/user/${id}`,
 				method: "GET",
 			}),
-			invalidatesTags: ["Resumes"],
+			providesTags: ["Resumes"],
 		}),
 		createResume: builder.mutation({
 			query: (resumeData) => ({
@@ -40,6 +40,14 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 			},
 			invalidatesTags: ["Resumes"],
 		}),
+		deleteResume: builder.mutation({
+			query: (id, currentUserId) => ({
+				url: `/resume/${id}`,
+				method: "DELETE",
+				body: { currentUserId: currentUserId },
+			}),
+			invalidatesTags: ["Resumes"],
+		}),
 	}),
 });
 
@@ -48,4 +56,5 @@ export const {
 	useGetUserResumeQuery,
 	useCreateResumeMutation,
 	useUpdateResumeMutation,
+	useDeleteResumeMutation,
 } = resumeApiSlice;

@@ -20,7 +20,32 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ["Resumes"],
 		}),
+		createResume: builder.mutation({
+			query: (resumeData) => ({
+				url: "/resume/create",
+				method: "POST",
+				body: { ...resumeData },
+			}),
+			invalidatesTags: ["Resumes"],
+		}),
+		updateResume: builder.mutation({
+			query(resumeData) {
+				const { _id, ...data } = resumeData;
+				console.log(_id);
+				return {
+					url: `/resume/${_id}`,
+					method: "PUT",
+					body: { ...resumeData },
+				};
+			},
+			invalidatesTags: ["Resumes"],
+		}),
 	}),
 });
 
-export const { useGetResumeQuery, useGetUserResumeQuery } = resumeApiSlice;
+export const {
+	useGetResumeQuery,
+	useGetUserResumeQuery,
+	useCreateResumeMutation,
+	useUpdateResumeMutation,
+} = resumeApiSlice;

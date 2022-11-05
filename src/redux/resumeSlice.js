@@ -44,9 +44,42 @@ const resumeSlice = createSlice({
 			const newEducations = [...action.payload];
 			state.data.education = newEducations;
 		},
+		setExperience: (state, action) => {
+			const newExperience = [...action.payload];
+			state.data.experience = newExperience;
+		},
+		setSkills: (state, action) => {
+			const newSkills = [...action.payload];
+			state.data.skills = newSkills;
+		},
+		setProjects: (state, action) => {
+			const newProjects = [...action.payload];
+			state.data.projects = newProjects;
+		},
+		setCertifications: (state, action) => {
+			const newCertifications = [...action.payload];
+			state.data.certifications = newCertifications;
+		},
+		setExtras: (state, action) => {
+			const newExtras = [...action.payload];
+			state.data.extra = newExtras;
+		},
+		setSettings: (state, action) => {
+			state.name = action.payload.name;
+		},
 	},
 });
 
-export const { setResumeData, setHeader, setEducation } = resumeSlice.actions;
+export const {
+	setResumeData,
+	setHeader,
+	setEducation,
+	setExperience,
+	setSkills,
+	setProjects,
+	setCertifications,
+	setExtras,
+	setSettings,
+} = resumeSlice.actions;
 
 export default resumeSlice.reducer;

@@ -22,7 +22,7 @@ const Dashboard = () => {
 		<div className="dashboard w-full flex justify-center items-center">
 			<div className="dashboard--container section min-h-screen flex justify-center items-center py-28">
 				{userLoading ? (
-					<h1 className="font-bold text-4xl">Loading user...</h1>
+					<h1 className="font-bold text-4xl">Loading ...</h1>
 				) : (
 					<div className="dashboard--content w-full self-start flex flex-col justify-start items-center gap-8">
 						<h1 className="dashboard--greeting w-full font-bold text-4xl">

@@ -11,6 +11,10 @@
 	body {
 		@apply font-Inter text-black-two scroll-smooth ease-in-out duration-300;
 	}
+
+	img {
+		@apply inline-block;
+	}
 }
 
 @layer components {

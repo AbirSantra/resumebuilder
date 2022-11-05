@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setExperience } from "../redux/resumeSlice";
 
-const Experience = ({ setStep }) => {
+const Experience = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Experience = ({ setStep }) => {
 	// to store the experience
 	const [experiences, setExperiences] = useState([]);
 
-	// to refresh the initial values of the experience
-	useEffect(() => {
-		setExperiences(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the experience
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setExperiences(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);
@@ -123,7 +126,7 @@ const Experience = ({ setStep }) => {
 							<div
 								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
 								onClick={() => {
-									const newList = [...experience];
+									const newList = [...experiences];
 									newList.splice(
 										newList.findIndex(
 											(item) => item.employer === experience.employer

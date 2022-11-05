@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setCertifications } from "../redux/resumeSlice";
 
-const Certifications = ({ setStep }) => {
+const Certifications = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Certifications = ({ setStep }) => {
 	// to store the certifications
 	const [certificates, setCertificates] = useState([]);
 
-	// to refresh the initial values of the certifications
-	useEffect(() => {
-		setCertificates(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the certifications
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setCertificates(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);

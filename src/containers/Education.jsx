@@ -4,7 +4,7 @@ import { FiTrash2 } from "react-icons/fi";
 import InputControl from "../components/InputControl";
 import { setEducation } from "../redux/resumeSlice";
 
-const Education = ({ setStep }) => {
+const Education = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Education = ({ setStep }) => {
 	// to store the education
 	const [educations, setEducations] = useState([]);
 
-	// to refresh the initial values of the education
-	useEffect(() => {
-		setEducations(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the education
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setEducations(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);

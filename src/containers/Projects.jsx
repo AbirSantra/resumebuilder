@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setProjects as setProjectsAction } from "../redux/resumeSlice";
 
-const Projects = ({ setStep }) => {
+const Projects = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Projects = ({ setStep }) => {
 	// to store the projects
 	const [projects, setProjects] = useState([]);
 
-	// to refresh the initial values of the projects
-	useEffect(() => {
-		setProjects(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the projects
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setProjects(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);

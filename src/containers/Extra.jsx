@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setExtras as setExtrasAction } from "../redux/resumeSlice";
 
-const Extra = ({ setStep }) => {
+const Extra = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Extra = ({ setStep }) => {
 	// to store the extras
 	const [extras, setExtras] = useState([]);
 
-	// to refresh the initial values of the extras
-	useEffect(() => {
-		setExtras(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the extras
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setExtras(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);
@@ -154,7 +157,7 @@ const Extra = ({ setStep }) => {
 					</div>
 				)}
 
-				<div className="projects--buttons w-full flex justify-between items-center">
+				<div className="extra--buttons w-full flex justify-between items-center">
 					<button className="prev btn secondary--btn" onClick={handleBack}>
 						Back
 					</button>

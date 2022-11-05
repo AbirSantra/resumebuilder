@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import InputControl from "../components/InputControl";
 import { setHeader } from "../redux/resumeSlice";
 
-const Header = ({ step, setStep }) => {
+const Header = ({ isNew, step, setStep }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -25,19 +25,22 @@ const Header = ({ step, setStep }) => {
 	const [linkedin, setLinkedin] = useState("");
 	const [website, setWebsite] = useState("");
 
-	// to refresh the initial values of the fields
-	useEffect(() => {
-		setFirstname(headerData.firstname);
-		setLastname(headerData.lastname);
-		setProfession(headerData.profession);
-		setCity(headerData.city);
-		setCountry(headerData.country);
-		setPincode(headerData.pincode);
-		setPhone(headerData.phone);
-		setEmail(headerData.email);
-		setLinkedin(headerData.linkedin);
-		setWebsite(headerData.website);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the fields
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setFirstname(headerData.firstname);
+			setLastname(headerData.lastname);
+			setProfession(headerData.profession);
+			setCity(headerData.city);
+			setCountry(headerData.country);
+			setPincode(headerData.pincode);
+			setPhone(headerData.phone);
+			setEmail(headerData.email);
+			setLinkedin(headerData.linkedin);
+			setWebsite(headerData.website);
+		}, [headerData]);
+	}
 
 	//! to handle form field value changes
 	const firstnameChange = (e) => {

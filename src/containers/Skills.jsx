@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setSkills as setSkillsAction } from "../redux/resumeSlice";
 
-const Skills = ({ setStep }) => {
+const Skills = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
@@ -13,10 +13,13 @@ const Skills = ({ setStep }) => {
 	// to store the experience
 	const [skills, setSkills] = useState([]);
 
-	// to refresh the initial values of the skills
-	useEffect(() => {
-		setSkills(headerData);
-	}, [headerData]);
+	if (!isNew) {
+		// to refresh the initial values of the skills
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		useEffect(() => {
+			setSkills(headerData);
+		}, [headerData]);
+	}
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);

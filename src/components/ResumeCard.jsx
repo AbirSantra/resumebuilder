@@ -35,10 +35,6 @@ const ResumeCard = ({ resume }) => {
 					<FiEdit size={20} />
 					<p className="resume--options--label text-sm font-semibold">Edit</p>
 				</Link>
-				<div className="resume--options--icon cursor-pointer flex justify-center items-center gap-2 text-grey-three hover:text-primary">
-					<FiDownload size={20} />
-					<p className="resume--options--label text-sm font-semibold">Save</p>
-				</div>
 				<div
 					className="resume--options--icon cursor-pointer flex justify-center items-center gap-2 text-grey-three hover:text-primary"
 					onClick={handleDelete}

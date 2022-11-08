@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import InputControl from "../components/InputControl";
 import { setHeader } from "../redux/resumeSlice";
+import { FaUser } from "react-icons/fa";
 
 const Header = ({ isNew, step, setStep }) => {
 	const dispatch = useDispatch();
@@ -104,10 +105,13 @@ const Header = ({ isNew, step, setStep }) => {
 	return (
 		<div className="header w-full">
 			<div className="header--container w-full flex flex-col justify-center items-start gap-12">
-				<div className="header--heading w-full flex flex-col justify-start items-start">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Personal Details
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-2 text-2xl text-primary">
+						<FaUser />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Personal Details
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
 						Let the employers know how to contact you
 					</p>

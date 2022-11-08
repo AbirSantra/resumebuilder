@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FiTrash2 } from "react-icons/fi";
+import { IoSchool } from "react-icons/io5";
 import InputControl from "../components/InputControl";
 import { setEducation } from "../redux/resumeSlice";
 
@@ -95,13 +96,15 @@ const Education = ({ isNew, setStep }) => {
 	return (
 		<div className="education w-full">
 			<div className="education--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Education
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<IoSchool />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Education
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
-						Tell us about your education. Include every school, or college that
-						you have attended, even if you haven't graduated yet.
+						Let the employers know how to contact you
 					</p>
 				</div>
 

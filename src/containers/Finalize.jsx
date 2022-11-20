@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setSettings } from "../redux/resumeSlice";
+import { FaPaintBrush } from "react-icons/fa";
 
 const Finalize = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -52,10 +53,13 @@ const Finalize = ({ isNew, setStep }) => {
 	return (
 		<div className="settings w-full">
 			<div className="settings--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Customize
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<FaPaintBrush size={24} />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Customize
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
 						Choose your template and accent color and give your resume a name.
 					</p>

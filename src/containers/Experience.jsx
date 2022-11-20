@@ -3,6 +3,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setExperience } from "../redux/resumeSlice";
+import { MdWork } from "react-icons/md";
 
 const Experience = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -95,10 +96,13 @@ const Experience = ({ isNew, setStep }) => {
 	return (
 		<div className="experience w-full">
 			<div className="experience--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Experience
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<MdWork />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Experience
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
 						Tell us about your experience. Start with your most recent
 						experience and work backwards

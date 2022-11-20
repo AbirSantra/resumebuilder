@@ -3,6 +3,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setCertifications } from "../redux/resumeSlice";
+import { MdVerified } from "react-icons/md";
 
 const Certifications = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -89,14 +90,15 @@ const Certifications = ({ isNew, setStep }) => {
 	return (
 		<div className="certificates w-full">
 			<div className="certificates--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Certifications
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<MdVerified />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Certifications
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
-						Add your projects. They can be personal projects or group projects.
-						Be sure to mention your learning from each project and your
-						responsibilities in case of group projects
+						Showcase your various certifications here
 					</p>
 				</div>
 

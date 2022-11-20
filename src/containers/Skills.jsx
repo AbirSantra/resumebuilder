@@ -3,6 +3,7 @@ import { FiX } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setSkills as setSkillsAction } from "../redux/resumeSlice";
+import { RiStackFill } from "react-icons/ri";
 
 const Skills = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -65,10 +66,13 @@ const Skills = ({ isNew, setStep }) => {
 	return (
 		<div className="skills w-full">
 			<div className="skills--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Skills
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<RiStackFill />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Skills
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
 						Tell us about your skills. Add your best skills first.
 					</p>

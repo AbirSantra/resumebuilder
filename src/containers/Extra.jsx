@@ -3,6 +3,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setExtras as setExtrasAction } from "../redux/resumeSlice";
+import { HiViewGridAdd } from "react-icons/hi";
 
 const Extra = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -77,10 +78,13 @@ const Extra = ({ isNew, setStep }) => {
 	return (
 		<div className="extras w-full">
 			<div className="extras--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading">
-					<h1 className="header--title font-bold text-3xl text-primary">
-						Add Extra Sections
-					</h1>
+				<div className="header--heading w-full flex flex-col justify-start items-start ">
+					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
+						<HiViewGridAdd />
+						<h1 className="header--title font-bold text-3xl text-primary">
+							Add Extra Sections
+						</h1>
+					</div>
 					<p className="header--subheading text-grey-three">
 						Use this page to add extra sections to your resume. You can add
 						sections like "Awards" or "Roles & Responsibilities" and describe

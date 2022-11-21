@@ -135,6 +135,7 @@ const Header = ({ isNew, step, setStep }) => {
 						type="text"
 						label="Job Title"
 						placeholder="e.g. Web Developer"
+						hint="Add a title that quickly describes your overall experience or add the title you are current applying to"
 						value={profession}
 						onChange={professionChange}
 					/>
@@ -175,7 +176,8 @@ const Header = ({ isNew, step, setStep }) => {
 					/>
 					<InputControl
 						type="text"
-						label="Personal Website Link"
+						label="Portfolio Website Link"
+						hint="Add your portfolio website link if you have one"
 						value={website}
 						onChange={websiteChange}
 					/>

@@ -165,6 +165,7 @@ const Experience = ({ isNew, setStep }) => {
 								type="text"
 								label="Employer"
 								placeholder="e.g XYZ Company"
+								hint="This would be the name of the company or the organization that you worked for"
 								value={employer}
 								onChange={employerChange}
 							/>
@@ -172,6 +173,7 @@ const Experience = ({ isNew, setStep }) => {
 								type="text"
 								label="Position"
 								placeholder="e.g Junior Frontend Developer"
+								hint="Add your role or position at this job"
 								value={position}
 								onChange={positionChange}
 							/>
@@ -194,7 +196,8 @@ const Experience = ({ isNew, setStep }) => {
 								rows="8"
 								type="text"
 								label="Descrition"
-								placeholder="Describe your various roles and responsibilities"
+								placeholder="e.g Migrated the frontend to a new technology reducing load times by 60% "
+								hint="Describe your various roles and responsibilities in the job. Write about all the things that you achieved or learned in this role. If possible, use numbers/facts (Achieved X, measured by Y, by doing Z)."
 								value={description}
 								onChange={descriptionChange}
 							/>

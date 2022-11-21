@@ -162,6 +162,7 @@ const Education = ({ isNew, setStep }) => {
 								type="text"
 								label="Institute"
 								placeholder="e.g Example Institute of Technology"
+								hint="Write the name of your college or school"
 								value={institute}
 								onChange={instituteChange}
 							/>
@@ -169,6 +170,7 @@ const Education = ({ isNew, setStep }) => {
 								type="text"
 								label="Degree"
 								placeholder="e.g BTech in Information Technology"
+								hint="If you are in school just write 'Primary Education' or 'Secondary Education' "
 								value={degree}
 								onChange={degreeChange}
 							/>
@@ -190,6 +192,7 @@ const Education = ({ isNew, setStep }) => {
 								type="text"
 								label="Score"
 								placeholder="e.g 95% or 9.5"
+								hint="Write your percentile or GPA here"
 								value={score}
 								onChange={scoreChange}
 							/>

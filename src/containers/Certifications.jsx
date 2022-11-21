@@ -158,12 +158,14 @@ const Certifications = ({ isNew, setStep }) => {
 								type="text"
 								label="Certification Name"
 								placeholder="e.g Complete Web Development Bootcamp"
+								hint="Enter the name of the course or the event for which you received this certificate"
 								value={certificationname}
 								onChange={nameChange}
 							/>
 							<InputControl
 								type="text"
 								label="Issuing Organization"
+								hint="Enter the name of the organization or the event or the person who issued you this certificate"
 								value={organization}
 								onChange={organizationChange}
 							/>
@@ -177,6 +179,7 @@ const Certifications = ({ isNew, setStep }) => {
 							<InputControl
 								type="text"
 								label="Certificate Link"
+								hint="Upload the certificate to Google Drive and add the link here. If it is a physical certificate, then scan it and then upload it to Google Drive."
 								value={url}
 								onChange={urlChange}
 							/>

@@ -170,6 +170,7 @@ const Projects = ({ isNew, setStep }) => {
 							<InputControl
 								type="text"
 								label="Project Link"
+								hint="Add your project demo link or GitHub link. You may also add relevant files to a Google Drive folder and add the link here"
 								value={url}
 								onChange={urlChange}
 							/>
@@ -191,8 +192,8 @@ const Projects = ({ isNew, setStep }) => {
 								textarea
 								rows="8"
 								type="text"
-								label="Descrition"
-								placeholder="Describe your project"
+								label="Description"
+								hint="Describe your project in details - what it does, what problem does it solve, what tool did you use , what did you learn, what were some obstacles that you overcame while building this project. However, do not write an essay. Be precise and concise"
 								value={description}
 								onChange={descriptionChange}
 							/>

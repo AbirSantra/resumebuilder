@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logOut } from "../redux/authSlice";
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: "http://localhost:5000", // backend server url
+	baseUrl: "https://jade-lively-eagle.cyclic.app/", // backend server url
 	credentials: "include", // to include the http only cookies everytime
 	prepareHeaders: (headers, { getState }) => {
 		// set the authorization header

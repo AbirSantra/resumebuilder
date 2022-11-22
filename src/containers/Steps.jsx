@@ -16,14 +16,14 @@ const Steps = () => {
 					<ImageContentContainer
 						variant="left"
 						stepnum="1"
-						heading="Select your style"
-						desc="Choose a template, font and accent color to make your resume unique."
+						heading="Fill in your details"
+						desc="Fill up the form with your details like bio, education, skills, experience, certifications, and projects."
 					/>
 					<ImageContentContainer
 						variant="right"
 						stepnum="2"
-						heading="Fill in your details"
-						desc="Fill up the form with your details like bio, education, skills, experience, certifications, and projects."
+						heading="Select your style"
+						desc="Choose a template, font and accent color to make your resume unique."
 					/>
 					<ImageContentContainer
 						variant="left"

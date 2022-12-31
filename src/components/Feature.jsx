@@ -1,17 +1,16 @@
 import React from "react";
 
-const Feature = ({ icon, color, label }) => {
+const Feature = ({ icon, desc, label }) => {
 	return (
-		<div className="flex flex-col justify-center items-center gap-4">
+		<div className="group flex flex-col justify-center items-center gap-4">
 			<div
-				className="group flex justify-center items-center w-[100px] h-[100px] rounded-xl "
-				style={{ backgroundColor: `${color}` }}
+				className="flex justify-center items-center w-[3rem] h-[3rem] rounded-xl bg-blue-600/20 p-4 group-hover:scale-125 ease-in-out duration-200"
+				// style={{ backgroundColor: `${color}` }}
 			>
-				<div className="flex justify-center items-center w-10 group-hover:scale-110 ease-in-out duration-300">
-					<img src={icon} alt={label} />
-				</div>
+				<span className="text-2xl text-blue-600">{icon}</span>
 			</div>
-			<p className="font-medium text-grey-three">{label}</p>
+			<p className="mt-2 font-semibold text-lg text-slate-800">{label}</p>
+			<p className="w-3/5 text-center text-base text-slate-500">{desc}</p>
 		</div>
 	);
 };

@@ -42,7 +42,7 @@ const Navbar = () => {
 				</div>
 				{token ? (
 					<Link to="dashboard">
-						<button className="btn primary--btn">Dashboard</button>
+						<button className="btn primary--btn">My Account</button>
 					</Link>
 				) : (
 					<Link to="auth">

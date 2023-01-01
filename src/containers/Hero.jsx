@@ -3,13 +3,13 @@ import { HiArrowRight } from "react-icons/hi";
 import heroImage from "../images/hero-img.png";
 const Hero = () => {
 	return (
-		<div className="hero w-full min-h-[80vh] flex justify-center items-start bg-primary-lighter py-28">
+		<div className="hero w-full min-h-[80vh] flex justify-center items-start  py-28">
 			<div className="hero--container section relative flex justify-center items-center flex-col gap-16 text-center">
 				<div className="hero--content flex justify-center items-center flex-col gap-8">
-					<h1 className="hero--heading font-extrabold text-5xl">
+					<h1 className="hero--heading font-extrabold text-7xl">
 						Build your professional <br /> resume in a matter of minutes
 					</h1>
-					<h2 className="hero--subheading font-semibold text-grey-three">
+					<h2 className="hero--subheading font-medium text-grey-three">
 						Resu.me makes creating & exporting resumes as easy as filling up a
 						form
 					</h2>

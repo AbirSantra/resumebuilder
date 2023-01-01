@@ -6,7 +6,7 @@ const ImageContentContainer = ({ variant, image, stepnum, heading, desc }) => {
 		return (
 			<div className="w-full flex justify-center items-center gap-16">
 				<div className="flex-1 flex justify-end items-center">
-					<div className="w-[500px] h-[350px] rounded-lg bg-[#a3a3a3] flex justify-center items-center">
+					<div className="w-[500px] h-[350px] rounded-lg bg-slate-50 flex justify-center items-center">
 						{/* <img src="" alt="" /> */}
 						Image
 					</div>
@@ -37,7 +37,7 @@ const ImageContentContainer = ({ variant, image, stepnum, heading, desc }) => {
 					</button>
 				</div>
 				<div className="flex-1 flex justify-start items-center">
-					<div className="w-[500px] h-[350px] rounded-lg bg-[#a3a3a3] flex justify-center items-center">
+					<div className="w-[500px] h-[350px] rounded-lg bg-slate-50 flex justify-center items-center">
 						{/* <img src="" alt="" /> */}
 						Image
 					</div>

@@ -12,7 +12,7 @@ const Steps = () => {
 						subheading="Perfect resume in 3 simple and easy steps!"
 					/>
 				</div>
-				<div className="steps--content w-full flex flex-col justify-center items-center gap-16">
+				<div className="steps--content w-full flex flex-col justify-center items-center gap-32">
 					<ImageContentContainer
 						variant="left"
 						stepnum="1"

@@ -14,6 +14,21 @@ const Footer = () => {
 						<p className="max-w-[300px] text-sm text-grey-three">
 							Resu.me &copy; {new Date().getFullYear()}. All rights reserved.
 						</p>
+						<div className="max-w-[300px] text-sm text-grey-three">
+							{" "}
+							Icon made by{" "}
+							<a
+								href="https://www.flaticon.com/authors/freepik"
+								title="Freepik"
+							>
+								{" "}
+								Freepik{" "}
+							</a>{" "}
+							from{" "}
+							<a href="https://www.flaticon.com/" title="Flaticon">
+								www.flaticon.com
+							</a>
+						</div>
 					</div>
 					<div className="footer--links flex justify-center items-start gap-16">
 						<div className="flex flex-col justify-start items-start">

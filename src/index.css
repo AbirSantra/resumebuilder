@@ -61,20 +61,14 @@
 	}
 
 	::-webkit-scrollbar {
-		width: 6px;
+		@apply w-[6px];
 	}
 
 	::-webkit-scrollbar-track {
-		border-radius: 100vh;
-		background: none;
+		@apply rounded-full bg-none;
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: #045cdc;
-		border-radius: 100vh;
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background: #61abee;
+		@apply bg-primary rounded-full hover:bg-primary-dark duration-200 ease-in-out;
 	}
 }

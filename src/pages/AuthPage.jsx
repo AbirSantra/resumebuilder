@@ -115,9 +115,9 @@ const AuthPage = () => {
 	};
 
 	return (
-		<div className="auth w-full flex justify-center items-center bg-primary-lighter">
+		<div className="auth w-full flex justify-center items-center bg-white-two">
 			<div className="auth--container section min-h-[calc(100vh-6rem)] flex justify-center items-center">
-				<div className="auth--content w-full max-w-[500px] bg-white-one shadow-md py-16 px-12 rounded-2xl flex flex-col justify-center items-center gap-8">
+				<div className="auth--content w-full max-w-[500px] bg-white-one shadow-sm py-16 px-12 rounded-2xl flex flex-col justify-center items-center gap-8">
 					<div className="auth--header w-full text-center">
 						<h1 className="auth--heading font-extrabold text-3xl">
 							{isLogin ? "User Login" : "User SignUp"}
@@ -129,7 +129,7 @@ const AuthPage = () => {
 						</p>
 					</div>
 					{error && (
-						<p className="auth--error text-sm italic text-[#dc2626]">{error}</p>
+						<p className="auth--error text-sm italic text-red-600">{error}</p>
 					)}
 					<form
 						className="auth--form w-full flex flex-col justify-center items-center gap-2"

@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
 				<div className="whychooseus--features mt-8 grid grid-cols-2 gap-x-16  gap-y-24">
 					<Feature
 						icon={<MdMoneyOff />}
-						label="Completely Free"
+						label="Free Forever"
 						desc="Resu.me is and always will be 100% free. Create an account for free. No credit card required."
 					/>
 					<Feature

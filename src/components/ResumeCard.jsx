@@ -23,24 +23,22 @@ const ResumeCard = ({ resume }) => {
 	};
 
 	return (
-		<div className="resume--card w-full group flex justify-between items-center px-6 py-6 rounded-lg border border-grey-four hover:border-primary  ease-in-out duration-300">
-			<h2 className="resume--name font-semibold text-grey-three group-hover:text-primary duration-300 ease-in-out">
+		<div className="resume--card w-full max-w-[240px] h-[300px] group flex flex-col justify-center items-center px-6 py-6 rounded-lg border border-grey-four hover:border-primary  ease-in-out duration-300">
+			<h2 className="resume--name text-xl font-semibold text-center text-grey-three group-hover:text-primary duration-300 ease-in-out">
 				{resume.name}
 			</h2>
-			<div className="resume--options flex justify-center items-center gap-8">
+			<div className="resume--options mt-4 flex justify-center items-center gap-8">
 				<Link
 					to={`/editor/${resume._id}`}
-					className="resume--options--icon cursor-pointer flex justify-center items-center gap-2 text-grey-three hover:text-primary"
+					className="resume--options--icon group cursor-pointer flex justify-center items-center gap-2 rounded-full p-3 text-grey-three hover:text-white bg-white hover:bg-primary duration-200 ease-in-out"
 				>
 					<FiEdit size={20} />
-					<p className="resume--options--label text-sm font-semibold">Edit</p>
 				</Link>
 				<div
-					className="resume--options--icon cursor-pointer flex justify-center items-center gap-2 text-grey-three hover:text-primary"
+					className="resume--options--icon group cursor-pointer flex justify-center items-center gap-2 rounded-full p-3 text-grey-three hover:text-white bg-white hover:bg-primary duration-200 ease-in-out"
 					onClick={handleDelete}
 				>
 					<FiTrash2 size={20} />
-					<p className="resume--options--label text-sm font-semibold">Delete</p>
 				</div>
 			</div>
 		</div>

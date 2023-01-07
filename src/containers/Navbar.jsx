@@ -9,7 +9,7 @@ const Navbar = () => {
 	const token = useSelector(selectCurrentToken);
 
 	return (
-		<nav className="navbar w-full h-24 flex justify-center items-center">
+		<nav className="navbar w-full h-24 flex justify-center items-center shadow-sm">
 			<div className="section navbar--container w-full flex justify-between items-center">
 				<div className="navbar--logo flex justify-center items-center">
 					<CompanyLogo />

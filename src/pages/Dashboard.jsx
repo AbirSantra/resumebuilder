@@ -38,8 +38,7 @@ const Dashboard = () => {
 									</button>
 								</Link>
 							</div>
-							{/* <div className="divider w-full h-[1px] bg-grey-four my-2"></div> */}
-							<div className="dashboard--resumes mt-4 w-full flex flex-col justify-center items-center gap-4">
+							<div className="dashboard--resumes mt-4 w-full flex flex-col justify-start items-start gap-4">
 								{resumesLoading ? (
 									<h2 className="text-grey-three">Loading your resumes...</h2>
 								) : resumes.length === 0 ? (

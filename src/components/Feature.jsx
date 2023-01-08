@@ -9,7 +9,9 @@ const Feature = ({ icon, desc, label }) => {
 			>
 				<span className="text-2xl text-primary">{icon}</span>
 			</div>
-			<p className="mt-2 font-semibold text-lg text-slate-800">{label}</p>
+			<p className="mt-2 font-semibold text-lg text-slate-800 group-hover:text-primary ease-in-out duration-200">
+				{label}
+			</p>
 			<p className="w-3/5 text-center text-base text-slate-500">{desc}</p>
 		</div>
 	);

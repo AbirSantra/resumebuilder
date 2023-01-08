@@ -38,13 +38,18 @@ const Dashboard = () => {
 									</button>
 								</Link>
 							</div>
-							<div className="dashboard--resumes mt-4 w-full flex flex-col justify-start items-start gap-4">
+							<div className="dashboard--resumes mt-8 w-full grid grid-cols-5 gap-8">
+								{/* New Resume */}
+								<Link
+									to="/editor/new"
+									className="resume--card group w-full aspect-[3/4] group flex flex-col justify-center items-center px-6 py-6 rounded-lg border border-grey-four hover:border-primary  ease-in-out duration-300"
+								>
+									<div className="resume--card--new flex justify-center items-center w-12 h-12 rounded-full  text-grey-three text-2xl group-hover:bg-primary group-hover:text-white duration-200 ease-in-out">
+										<HiPlus size={24} />
+									</div>
+								</Link>
 								{resumesLoading ? (
 									<h2 className="text-grey-three">Loading your resumes...</h2>
-								) : resumes.length === 0 ? (
-									<h2 className="text-grey-three">
-										You have no resumes. Create one now!
-									</h2>
 								) : (
 									resumes.map((resume) => {
 										return <ResumeCard key={resume._id} resume={resume} />;

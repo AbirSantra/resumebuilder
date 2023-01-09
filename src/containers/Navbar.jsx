@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CompanyLogo from "../components/CompanyLogo";
 import { selectCurrentToken } from "../redux/authSlice";
 
@@ -9,12 +9,12 @@ const Navbar = () => {
 	const token = useSelector(selectCurrentToken);
 
 	return (
-		<nav className="navbar w-full h-24 flex justify-center items-center shadow-sm">
-			<div className="section navbar--container w-full flex justify-between items-center">
+		<nav className="navbar w-full h-20 flex justify-center items-center shadow-sm">
+			<div className="section  navbar--container w-full flex justify-between items-center">
 				<div className="navbar--logo flex justify-center items-center">
 					<CompanyLogo />
 				</div>
-				<div className="navbar--links flex justify-center items-center gap-4">
+				{/* <div className="navbar--links flex justify-center items-center gap-4">
 					<NavLink
 						to="/about"
 						className={({ isActive }) =>
@@ -39,7 +39,7 @@ const Navbar = () => {
 					>
 						Reviews
 					</NavLink>
-				</div>
+				</div> */}
 				{token ? (
 					<Link to="dashboard">
 						<button className="btn primary--btn">My Account</button>

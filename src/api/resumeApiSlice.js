@@ -30,6 +30,7 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 		}),
 		updateResume: builder.mutation({
 			query(resumeData) {
+				// eslint-disable-next-line no-unused-vars
 				const { _id, ...data } = resumeData;
 				console.log(_id);
 				return {

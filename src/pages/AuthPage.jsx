@@ -7,6 +7,7 @@ import { useLoginMutation } from "../api/authApiSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "../api/userApiSlice";
+import InputControl from "../components/InputControl";
 
 const AuthPage = () => {
 	const [login, { isLoading: isLoging }] = useLoginMutation();
@@ -132,64 +133,41 @@ const AuthPage = () => {
 						<p className="auth--error text-sm italic text-red-600">{error}</p>
 					)}
 					<form
-						className="auth--form w-full flex flex-col justify-center items-center gap-2"
+						className="auth--form mt-4 w-full flex flex-col justify-center items-center gap-6"
 						onSubmit={handleSubmit}
 					>
 						{!isLogin && (
-							<div className="auth--form--input w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four">
-								<input
-									type="email"
-									className="w-full border-none outline-none text-sm"
-									placeholder="Enter email"
-									value={email}
-									onChange={emailChange}
-									required
-								/>
-							</div>
-						)}
-						<div className="auth--form--input w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four">
-							<input
+							<InputControl
 								type="text"
-								className="w-full border-none outline-none text-sm"
-								placeholder="Enter username"
-								value={username}
-								onChange={usernameChange}
-								required
+								label="Email Address"
+								hint="We won't send any spam mails. Promise. We hate them more than you do"
+								placeholder="youremail@youradress.com"
+								value={email}
+								onChange={emailChange}
 							/>
-						</div>
-						<div className="auth--form--input w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four">
-							<input
-								type={showPass ? "text" : "password"}
-								className="w-full border-none outline-none text-sm"
-								placeholder="Enter password"
-								value={password}
-								onChange={passwordChange}
-								required
-							/>
-							<div
-								className="auth--pass--icon text-xl text-grey-three cursor-pointer"
-								onClick={toggleShowPass}
-							>
-								{showPass ? <BiHide /> : <BiShowAlt />}
-							</div>
-						</div>
+						)}
+						<InputControl
+							type="text"
+							label="Username"
+							placeholder="youruniqueusername"
+							value={username}
+							onChange={usernameChange}
+						/>
+						<InputControl
+							type="password"
+							label="Password"
+							placeholder="yoursecretpass"
+							value={password}
+							onChange={passwordChange}
+						/>
 						{!isLogin && (
-							<div className="auth--form--input w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four">
-								<input
-									type={showPass ? "text" : "password"}
-									className="w-full border-none outline-none text-sm"
-									placeholder="Confirm password"
-									value={confirmPass}
-									onChange={confirmPassChange}
-									required
-								/>
-								<div
-									className="auth--pass--icon text-xl text-grey-three cursor-pointer"
-									onClick={toggleShowPass}
-								>
-									{showPass ? <BiHide /> : <BiShowAlt />}
-								</div>
-							</div>
+							<InputControl
+								type="password"
+								label="Confirm Password"
+								placeholder="same as yoursecretpass"
+								value={confirmPass}
+								onChange={confirmPassChange}
+							/>
 						)}
 						{isLogin ? (
 							<button className="btn primary--btn mt-4 w-full" type="submit">

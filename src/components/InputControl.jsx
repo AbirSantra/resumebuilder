@@ -3,9 +3,9 @@ import { useState } from "react";
 import { BiHide, BiShowAlt } from "react-icons/bi";
 import { FaRegQuestionCircle } from "react-icons/fa";
 
-const InputControl = ({ label, textarea, hint, password, type, ...props }) => {
+const InputControl = ({ label, textarea, hint, type, ...props }) => {
 	// to store the show/hide password state
-	const [showPass, setShowPass] = useState(false);
+	const [showPass, setShowPass] = useState(type === "password" ? false : true);
 
 	//! to toggle show/hide password state
 	const toggleShowPass = () => {
@@ -39,7 +39,7 @@ const InputControl = ({ label, textarea, hint, password, type, ...props }) => {
 				</label>
 
 				{/* Show Password icon */}
-				{password ? (
+				{type === "password" ? (
 					<div
 						className="text-xl text-grey-three cursor-pointer"
 						onClick={toggleShowPass}

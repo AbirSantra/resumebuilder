@@ -38,6 +38,16 @@ const InputControl = ({ label, textarea, hint, password, type, ...props }) => {
 					{label}
 				</label>
 
+				{/* Show Password icon */}
+				{password ? (
+					<div
+						className="text-xl text-grey-three cursor-pointer"
+						onClick={toggleShowPass}
+					>
+						{showPass ? <BiHide /> : <BiShowAlt />}
+					</div>
+				) : null}
+
 				{/* Hint ToolTip */}
 				{hint ? (
 					<div className="relative">

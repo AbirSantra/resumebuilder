@@ -8,7 +8,7 @@ const CompanyLogo = () => {
 			<div className="image w-8">
 				<img src={ResumeLogo} alt="Resu.me Logo" />
 			</div>
-			<p className="logo--text text-2xl font-bold">
+			<p className="logo--text text-xl font-bold">
 				Resu.
 				<span className="text-primary ">me</span>
 			</p>

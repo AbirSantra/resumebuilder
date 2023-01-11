@@ -10,7 +10,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="navbar w-full h-20 flex justify-center items-center shadow-sm">
-			<div className="section  navbar--container w-full flex justify-between items-center">
+			<div className="section--full navbar--container w-full flex justify-between items-center">
 				<div className="navbar--logo flex justify-center items-center">
 					<CompanyLogo />
 				</div>

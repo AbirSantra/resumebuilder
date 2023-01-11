@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { BiShowAlt, BiHide } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../redux/authSlice";
 import { useLoginMutation } from "../api/authApiSlice";
@@ -28,9 +27,6 @@ const AuthPage = () => {
 	// to store the login/register state
 	const [isLogin, setIsLogin] = useState(true);
 
-	// to store the show password state
-	const [showPass, setShowPass] = useState(false);
-
 	// to store the error messages
 	const [error, setError] = useState(null);
 
@@ -56,11 +52,6 @@ const AuthPage = () => {
 	//! to toggle login-register form
 	const toggleLogin = () => {
 		setIsLogin((prev) => !prev);
-	};
-
-	//! to toggle the show password state
-	const toggleShowPass = () => {
-		setShowPass((prev) => !prev);
 	};
 
 	//! to reset the form fields

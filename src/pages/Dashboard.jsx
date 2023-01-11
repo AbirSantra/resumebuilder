@@ -20,24 +20,17 @@ const Dashboard = () => {
 
 	return (
 		<div className="dashboard w-full flex justify-center items-center">
-			<div className="dashboard--container section min-h-screen flex justify-center items-center py-28">
+			<div className="dashboard--container section min-h-screen flex justify-center items-center py-16">
 				{userLoading ? (
 					<h1 className="font-bold text-4xl">Loading ...</h1>
 				) : (
-					<div className="dashboard--content w-full self-start flex flex-col justify-start items-center gap-8">
+					<div className="dashboard--content w-full self-start flex flex-col justify-start items-start gap-12">
 						<h1 className="dashboard--greeting w-full font-bold text-4xl">
-							Welcome,{" "}
+							Welcome{" "}
 							<span className="text-primary">{currentUser.username}</span>
 						</h1>
-						<div className="dashboard--resumes--container w-full flex flex-col justify-center items-center">
-							<div className="dashboard--resumes--header w-full flex justify-between items-center">
-								<h2 className="font-semibold text-2xl">My Resumes</h2>
-								<Link to="/editor/new">
-									<button className="btn primary--btn">
-										<HiPlus size={20} /> Create new
-									</button>
-								</Link>
-							</div>
+						<div className="dashboard--resumes--container w-full flex flex-col justify-start items-start">
+							<h2 className="font-semibold text-xl">My Resumes</h2>
 							<div className="dashboard--resumes mt-8 w-full grid grid-cols-5 gap-8">
 								{/* New Resume */}
 								<Link

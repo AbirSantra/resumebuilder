@@ -179,14 +179,16 @@ const Experience = ({ isNew, setStep }) => {
 							/>
 
 							<InputControl
-								type="month"
+								type="text"
 								label="Start Date"
+								placeholder="Jan 2022"
 								value={startdate}
 								onChange={startDateChange}
 							/>
 							<InputControl
-								type="month"
+								type="text"
 								label="End Date"
+								placeholder="Jul 2023"
 								value={enddate}
 								onChange={endDateChange}
 							/>

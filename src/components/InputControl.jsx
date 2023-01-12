@@ -13,12 +13,14 @@ const InputControl = ({ label, textarea, hint, type, ...props }) => {
 	};
 
 	return (
-		<div
-			className={
-				"w-full text-grey-three focus-within:text-primary  flex justify-center items-start flex-col gap-1"
-			}
-		>
-			<div className="relative w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four focus-within:border-primary ">
+		<div className="w-full text-grey-three focus-within:text-primary  flex justify-center items-start flex-col gap-1">
+			<div
+				className={
+					textarea
+						? "relative w-full flex justify-center items-start px-4 py-3 rounded-md border border-grey-four focus-within:border-primary"
+						: "relative w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four focus-within:border-primary "
+				}
+			>
 				{/* Input Area */}
 				{textarea ? (
 					<textarea

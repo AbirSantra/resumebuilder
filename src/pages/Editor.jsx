@@ -14,6 +14,7 @@ import Finalize from "../containers/Finalize";
 import Preview from "../containers/Preview";
 import Resume from "../containers/Resume";
 import FormSwitcher from "../components/FormSwitcher";
+import Divider from "../components/Divider";
 
 const Editor = () => {
 	// to store the id of the resume
@@ -60,8 +61,9 @@ const Editor = () => {
 	return (
 		<div className="editor w-full flex justify-center items-center">
 			<div className="editor--container w-full min-h-[calc(100vh-5rem)] grid grid-cols-[2fr_3fr]">
-				<div className="flex flex-col gap-4">
-					<FormSwitcher />
+				<div className="flex flex-col">
+					<FormSwitcher currentStep={step} setStep={setStep} />
+					<Divider />
 					<div>{step}</div>
 				</div>
 				<div className="bg-grey-four section--padding w-full flex justify-center items-center">

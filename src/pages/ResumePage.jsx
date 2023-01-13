@@ -94,7 +94,7 @@ const ResumePage = () => {
 								<div className="font-bold text-xl">
 									{item.position}, {item.employer}
 								</div>
-								<div className="text-grey-three text-sm font-semibold">
+								<div className="text-primary text-xs font-semibold">
 									({item.startdate} to {item.enddate})
 								</div>
 								<div className="experience--description text-grey-three mt-2 font-Ubuntu">
@@ -107,21 +107,23 @@ const ResumePage = () => {
 
 				{/* Projects */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="font-bold text-grey-three">Projects</div>
-					<div className="divider w-full h-[1px] bg-grey-four"></div>
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
+						Projects
+					</div>
+					<Divider />
+					<div className="mt-4 flex flex-col justify-start items-start gap-6">
 						{data.projects.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex gap-4">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl flex items-center gap-4">
 									{item.name}{" "}
-									<span className="font-bold text-[0.6rem] underline">
+									<a href={item.url} className="font-bold text-xs underline">
 										Link
-									</span>
+									</a>
 								</div>
-								<div className="text-grey-three text-[0.6rem] font-semibold">
-									{item.startdate} to {item.enddate}
+								<div className="text-primary text-xs font-semibold">
+									({item.startdate} to {item.enddate})
 								</div>
-								<div className="experience--description text-[0.6rem]">
+								<div className="experience--description text-grey-three mt-1 font-Ubuntu">
 									{item.description}
 								</div>
 							</div>

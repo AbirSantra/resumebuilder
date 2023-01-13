@@ -19,9 +19,9 @@ const ResumePage = () => {
 	return isLoading ? (
 		<div>Loading Resume</div>
 	) : (
-		<div className="resume w-full section">
+		<div className="resume w-full flex justify-center items-center">
 			<div
-				className="resume--container w-full py-16 flex justify-start items-start flex-col gap-12"
+				className="resume--container section w-full py-16 flex justify-start items-start flex-col gap-12"
 				id="resume"
 			>
 				{/* Header */}

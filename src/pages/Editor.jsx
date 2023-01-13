@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetResumeQuery } from "../api/resumeApiSlice";
-import { selectCurrentUser } from "../redux/authSlice";
 import Header from "../containers/Header";
 import Education from "../containers/Education";
 import Skills from "../containers/Skills";
@@ -24,7 +22,7 @@ const Editor = () => {
 	});
 
 	// to store whether resume is new or update
-	const [isNew, setIsNew] = useState(id === "new" ? true : false);
+	const isNew = id === "new" ? true : false;
 
 	// to store the current step
 	const [step, setStep] = useState(1);

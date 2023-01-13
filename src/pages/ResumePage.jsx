@@ -19,7 +19,7 @@ const ResumePage = () => {
 	return isLoading ? (
 		<div>Loading Resume</div>
 	) : (
-		<div className="resume w-full section border border-grey-four">
+		<div className="resume w-full section">
 			<div
 				className="resume--container w-full py-16 flex justify-start items-start flex-col gap-12"
 				id="resume"

@@ -12,7 +12,7 @@ import { GoVerified } from "react-icons/go";
 
 const FormSwitcher = ({ setStep, currentStep }) => {
 	return (
-		<div className="w-full section--padding py-6 flex justify-between items-center">
+		<div className="w-full h-16 section--padding py-6 flex justify-between items-center">
 			<div
 				className={
 					currentStep === 1

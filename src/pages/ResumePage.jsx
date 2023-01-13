@@ -21,7 +21,7 @@ const ResumePage = () => {
 	) : (
 		<div className="resume w-full section border border-grey-four">
 			<div
-				className="resume--container w-full py-16 flex justify-start items-start flex-col gap-8"
+				className="resume--container w-full py-16 flex justify-start items-start flex-col gap-12"
 				id="resume"
 			>
 				{/* Header */}
@@ -141,7 +141,7 @@ const ResumePage = () => {
 						{data.education.map((item) => (
 							<div className="w-full flex flex-col justify-start items-start gap-1">
 								<div className="font-bold text-xl">{item.institute} </div>
-								<span className="font-semibold text-primary text-sm">
+								<span className="font-semibold text-primary text-base">
 									{item.degree}
 								</span>
 								<div className="text-primary text-xs font-semibold">

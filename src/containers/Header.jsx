@@ -104,7 +104,7 @@ const Header = ({ isNew, step, setStep }) => {
 
 	return (
 		<div className="header w-full">
-			<div className="header--container w-full flex flex-col justify-center items-start gap-12">
+			<div className="header--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-12">
 				<div className="header--heading w-full flex flex-col justify-start items-start ">
 					<div className="flex justify-center items-center gap-2 text-2xl text-primary">
 						<FaUser />

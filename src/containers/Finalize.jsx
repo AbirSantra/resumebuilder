@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setSettings } from "../redux/resumeSlice";
 import { FaPaintBrush } from "react-icons/fa";
+import template1 from "../images/Template1.jpg";
 
 const Finalize = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -12,29 +13,18 @@ const Finalize = ({ isNew, setStep }) => {
 
 	// to store the form fields
 	const [name, setName] = useState("");
-	const [share, setShare] = useState("");
 
 	if (!isNew) {
 		// to refresh the initial values of the settings
 		// eslint-disable-next-line react-hooks/rules-of-hooks
 		useEffect(() => {
 			setName(headerData.name);
-			setShare(headerData.share);
 		}, [headerData]);
 	}
 
 	//! to handle form field changes
 	const nameChange = (e) => {
 		setName(e.target.value);
-	};
-	const shareChange = (e) => {
-		setShare(e.target.value);
-	};
-
-	//! to reset form
-	const resetForm = () => {
-		setName("");
-		setShare("");
 	};
 
 	//! to handle back button
@@ -65,14 +55,49 @@ const Finalize = ({ isNew, setStep }) => {
 					</p>
 				</div>
 
-				<div className="settings--form w-full flex flex-col justify-start items-start gap-4">
+				<div className="settings--form w-full flex flex-col justify-start items-start gap-8">
+					{/* Resume Name */}
 					<InputControl
 						type="text"
 						label="Resume Name"
-						placeholder="e.g My Resume"
+						placeholder="e.g Resume for Microsoft"
 						value={name}
 						onChange={nameChange}
 					/>
+
+					{/* Color Selection */}
+					<div className="w-full flex flex-col gap-4">
+						<h2 className="text-[13px] font-medium text-neutral-500">
+							Choose accent color:{" "}
+						</h2>
+						<div className="w-full flex gap-4">
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-red-600"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-orange-600"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-yellow-500"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-green-600"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-blue-600"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-primary"></span>
+							<span className="rounded-full h-8 w-8 border-grey-four border-2 hover:scale-110 cursor-pointer ease-out duration-300 bg-pink-600"></span>
+						</div>
+					</div>
+
+					{/* Template Selection */}
+					<div className="w-full flex flex-col gap-4">
+						<h2 className="text-[13px] font-medium text-neutral-500">
+							Choose template:{" "}
+						</h2>
+						<div className="w-full grid grid-cols-3 gap-8">
+							<div className="w-full border rounded-md hover:border-primary ease-in-out duration-200 cursor-pointer overflow-hidden">
+								<img src={template1} alt="template1" />
+							</div>
+							<div className="w-full border rounded-md hover:border-primary ease-in-out duration-200 cursor-pointer overflow-hidden">
+								<img src={template1} alt="template1" />
+							</div>
+							<div className="w-full border rounded-md hover:border-primary ease-in-out duration-200 cursor-pointer overflow-hidden">
+								<img src={template1} alt="template1" />
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div className="settings--buttons w-full flex justify-between items-center">

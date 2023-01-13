@@ -60,12 +60,18 @@ const Editor = () => {
 
 	return (
 		<div className="editor w-full flex justify-center items-center">
-			<div className="editor--container w-full min-h-[calc(100vh-5rem)] grid grid-cols-[2fr_3fr]">
-				<div className="flex flex-col">
+			<div className="editor--container w-full h-[calc(100vh-5rem)] grid grid-cols-[600px_auto]">
+				{/* Form */}
+				<div className="relative flex flex-col overflow-auto">
 					<FormSwitcher currentStep={step} setStep={setStep} />
 					<Divider />
-					<div>{step}</div>
+					<div className="section--padding py-12 w-full flex flex-col gap-12 overflow-auto">
+						<Header isNew={isNew} />
+						<Divider />
+						<Education isNew={isNew} step={step} setStep={setStep} />
+					</div>
 				</div>
+				{/* Preview */}
 				<div className="bg-grey-four section--padding w-full flex justify-center items-center">
 					<Resume />
 				</div>

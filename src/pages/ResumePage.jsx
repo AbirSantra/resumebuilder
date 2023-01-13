@@ -133,22 +133,22 @@ const ResumePage = () => {
 
 				{/* Education */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="font-bold text-grey-three">Education</div>
-					<div className="divider w-full h-[1px] bg-grey-four"></div>
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
+						Education
+					</div>
+					<Divider />
+					<div className="mt-4 flex flex-col justify-start items-start gap-6">
 						{data.education.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex justify-center items-center gap-4">
-									{item.institute}{" "}
-									<div className="text-grey-three text-[0.6rem] font-semibold">
-										{item.startdate} to {item.enddate}
-									</div>
-								</div>
-								<span className="font-semibold text-grey-three text-[0.6rem]">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl">{item.institute} </div>
+								<span className="font-semibold text-primary text-sm">
 									{item.degree}
 								</span>
+								<div className="text-primary text-xs font-semibold">
+									({item.startdate} to {item.enddate})
+								</div>
 
-								<div className="experience--description text-[0.6rem]">
+								<div className="experience--description font-Ubuntu text-grey-three">
 									Score: {item.score}
 								</div>
 							</div>

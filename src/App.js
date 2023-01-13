@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import AuthPage from "./pages/AuthPage";
 import { useSelector } from "react-redux";
 import Editor from "./pages/Editor";
+import ResumePage from "./pages/ResumePage";
 
 function App() {
 	// get access token from store
@@ -37,6 +38,7 @@ function App() {
 					path="/editor/:id"
 					element={token ? <Editor /> : <Navigate to="/auth" replace />}
 				/>
+				<Route path="/resume/:id" element={<ResumePage />} />
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 			<Footer />

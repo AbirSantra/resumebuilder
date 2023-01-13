@@ -158,23 +158,23 @@ const ResumePage = () => {
 
 				{/* Certifications */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="font-bold text-grey-three">Certifications</div>
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
+						Certifications
+					</div>
 					<div className="divider w-full h-[1px] bg-grey-four"></div>
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="mt-4 flex flex-col justify-start items-start gap-4">
 						{data.certifications.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex justify-center items-center gap-4">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl">
 									{item.certificationname}{" "}
 								</div>
-								<div className="text-grey-three text-[0.6rem] font-semibold flex gap-4">
+								<div className="font-semibold text-primary text-sm flex gap-4">
 									Issuer: {item.organization}{" "}
-									<span className="font-semibold text-grey-three text-[0.6rem]">
-										Issue Date: {item.date}
-									</span>
+									<span className="">Issued On: {item.date}</span>
 								</div>
 
-								<div className="experience--description text-[0.6rem]">
-									Link: {item.url}
+								<div className="experience--description font-Ubuntu">
+									Certificate Link: {item.url}
 								</div>
 							</div>
 						))}

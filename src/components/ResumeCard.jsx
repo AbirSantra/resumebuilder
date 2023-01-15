@@ -23,6 +23,13 @@ const ResumeCard = ({ resume }) => {
 		}
 	};
 
+	//! Handle share
+	const handleShare = async () => {
+		await navigator.clipboard
+			.writeText(`https://resumeapp.netlify.app/resume/${id}`)
+			.then(() => alert("Link copied to clipboard!"));
+	};
+
 	return (
 		<div className="resume--card w-full aspect-[3/4] group flex flex-col justify-center items-center px-6 py-6 rounded-lg border border-grey-four hover:border-primary  ease-in-out duration-300">
 			<Link
@@ -43,7 +50,7 @@ const ResumeCard = ({ resume }) => {
 				</Link>
 				<div
 					className="resume--options--icon group cursor-pointer invisible opacity-0 group-hover:visible group-hover:opacity-100 flex justify-center items-center gap-2 rounded-full p-3 text-grey-three hover:text-white bg-white hover:bg-primary duration-200 ease-in-out"
-					onClick={handleDelete}
+					onClick={handleShare}
 				>
 					<FiShare2 size={20} />
 				</div>

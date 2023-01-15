@@ -13,10 +13,10 @@ const InputControl = ({ label, textarea, hint, type, generate, ...props }) => {
 	};
 
 	//! to generate text
-	const handleGenerate = () => {
-		const query = textarea.value;
-		console.log(query);
-	};
+	// const handleGenerate = () => {
+	// 	const query = textarea.value;
+	// 	console.log(query);
+	// };
 
 	return (
 		<div className="w-full text-grey-three focus-within:text-primary  flex justify-center items-start flex-col gap-1">
@@ -70,7 +70,7 @@ const InputControl = ({ label, textarea, hint, type, generate, ...props }) => {
 				{generate ? (
 					<div
 						className="ml-2 text-lg cursor-pointer hover:text-primary duration-300 ease-in-out"
-						onClick={handleGenerate}
+						// onClick={handleGenerate}
 					>
 						<FaMagic />
 					</div>

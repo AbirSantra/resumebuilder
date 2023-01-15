@@ -195,6 +195,7 @@ const Experience = ({ isNew, setStep }) => {
 							<div className="col-span-2">
 								<InputControl
 									textarea
+									generate
 									rows="8"
 									type="text"
 									label="Description"

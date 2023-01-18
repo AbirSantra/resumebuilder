@@ -13,19 +13,35 @@ import Preview from "../containers/Preview";
 import Resume from "../containers/Resume";
 import FormSwitcher from "../components/FormSwitcher";
 import Divider from "../components/Divider";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { resetResumeData, setResumeData } from "../redux/resumeSlice";
 
 const Editor = () => {
+	const dispatch = useDispatch();
+
 	// to store the id of the resume
 	const { id } = useParams();
 
+	// to store if the resume is new or exisiting(edit)
+	const isNew = id === "new" ? true : false;
+
 	// get the resume data
-	const { data, isLoading } = useGetResumeQuery(id, {
+	const { data } = useGetResumeQuery(id, {
 		refetchOnMountOrArgChange: true,
-		skip: id === "new" ? true : false,
+		skip: isNew,
 	});
 
-	// to store whether resume is new or update
-	const isNew = id === "new" ? true : false;
+	// set resume data into global state
+	useEffect(() => {
+		if (data) {
+			dispatch(setResumeData(data));
+		}
+		if (isNew) {
+			dispatch(resetResumeData());
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [id, data]);
 
 	// to store the current step
 	const [step, setStep] = useState(1);

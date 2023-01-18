@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setHeader } from "../redux/resumeSlice";
 import { FaUserAlt } from "react-icons/fa";
+import FormSectionHeader from "../components/FormSectionHeader";
 
 const Header = ({ isNew }) => {
 	const dispatch = useDispatch();
@@ -107,17 +108,12 @@ const Header = ({ isNew }) => {
 	return (
 		<div className="header w-full">
 			<div className="header--container w-full flex flex-col justify-center items-start gap-8">
-				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-2 text-lg text-primary">
-						<FaUserAlt />
-						<h1 className="header--title font-semibold text-2xl text-primary">
-							Personal Details
-						</h1>
-					</div>
-					<p className="header--subheading text-sm text-grey-three">
-						Let the employers know how to contact you
-					</p>
-				</div>
+				<FormSectionHeader
+					icon={<FaUserAlt />}
+					title="Personal Details"
+					subtitle="Let the employers know how to contact you"
+				/>
+
 				<div className="header--form w-full grid grid-cols-2 gap-x-4 gap-y-8 ">
 					<InputControl
 						type="text"

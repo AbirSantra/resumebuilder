@@ -1,4 +1,3 @@
-import { setResumeData } from "../redux/resumeSlice";
 import { apiSlice } from "./apiSlice";
 
 export const resumeApiSlice = apiSlice.injectEndpoints({
@@ -8,10 +7,6 @@ export const resumeApiSlice = apiSlice.injectEndpoints({
 				url: `/resume/${id}`,
 				method: "GET",
 			}),
-			async onQueryStarted(id, { dispatch, queryFulfilled }) {
-				const { data } = await queryFulfilled;
-				dispatch(setResumeData(data));
-			},
 		}),
 		getUserResume: builder.query({
 			query: (id) => ({

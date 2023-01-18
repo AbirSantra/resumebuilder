@@ -80,9 +80,12 @@ const Editor = () => {
 					<FormSwitcher currentStep={step} setStep={setStep} />
 					<Divider />
 					<div className="section--padding py-12 w-full flex flex-col gap-12 overflow-auto">
-						<Header isNew={isNew} />
+						<Header />
 						<Divider />
-						<Education isNew={isNew} step={step} setStep={setStep} />
+						<Education />
+						<Divider />
+						<Skills />
+						<Divider />
 					</div>
 				</div>
 				{/* Preview */}

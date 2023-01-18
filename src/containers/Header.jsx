@@ -13,33 +13,30 @@ const Header = ({ isNew }) => {
 	const headerData = useSelector((state) => state.resume.data.header);
 
 	// to store the form fields
-	const [firstname, setFirstname] = useState("");
-	const [lastname, setLastname] = useState("");
-	const [profession, setProfession] = useState("");
-	const [city, setCity] = useState("");
-	const [country, setCountry] = useState("");
-	const [pincode, setPincode] = useState("");
-	const [phone, setPhone] = useState("");
-	const [email, setEmail] = useState("");
-	const [linkedin, setLinkedin] = useState("");
-	const [website, setWebsite] = useState("");
+	const [firstname, setFirstname] = useState(headerData.firstname);
+	const [lastname, setLastname] = useState(headerData.lastname);
+	const [profession, setProfession] = useState(headerData.profession);
+	const [city, setCity] = useState(headerData.city);
+	const [country, setCountry] = useState(headerData.country);
+	const [pincode, setPincode] = useState(headerData.pincode);
+	const [phone, setPhone] = useState(headerData.phone);
+	const [email, setEmail] = useState(headerData.email);
+	const [linkedin, setLinkedin] = useState(headerData.linkedin);
+	const [website, setWebsite] = useState(headerData.website);
 
 	//! to refresh the initial values of the fields
-	if (!isNew) {
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useEffect(() => {
-			setFirstname(headerData.firstname);
-			setLastname(headerData.lastname);
-			setProfession(headerData.profession);
-			setCity(headerData.city);
-			setCountry(headerData.country);
-			setPincode(headerData.pincode);
-			setPhone(headerData.phone);
-			setEmail(headerData.email);
-			setLinkedin(headerData.linkedin);
-			setWebsite(headerData.website);
-		}, [headerData]);
-	}
+	useEffect(() => {
+		setFirstname(headerData.firstname);
+		setLastname(headerData.lastname);
+		setProfession(headerData.profession);
+		setCity(headerData.city);
+		setCountry(headerData.country);
+		setPincode(headerData.pincode);
+		setPhone(headerData.phone);
+		setEmail(headerData.email);
+		setLinkedin(headerData.linkedin);
+		setWebsite(headerData.website);
+	}, [headerData]);
 
 	//! to update the global state when input value changes
 	useEffect(() => {

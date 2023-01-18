@@ -2,37 +2,39 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+	user: "",
+	name: "",
+	position: "",
+	share: true,
+	data: {
+		header: {
+			firstname: "",
+			middlename: "",
+			lastname: "",
+			profession: "",
+			city: "",
+			country: "",
+			pincode: "",
+			phone: "",
+			email: "",
+			linkedin: "",
+			website: "",
+		},
+		experience: [],
+		education: [],
+		skills: [],
+		projects: [],
+		roles: [],
+		certifications: [],
+		awards: [],
+		extra: [],
+	},
+};
+
 const resumeSlice = createSlice({
 	name: "resume",
-	initialState: {
-		user: "",
-		name: "",
-		position: "",
-		share: true,
-		data: {
-			header: {
-				firstname: "",
-				middlename: "",
-				lastname: "",
-				profession: "",
-				city: "",
-				country: "",
-				pincode: "",
-				phone: "",
-				email: "",
-				linkedin: "",
-				website: "",
-			},
-			experience: [],
-			education: [],
-			skills: [],
-			projects: [],
-			roles: [],
-			certifications: [],
-			awards: [],
-			extra: [],
-		},
-	},
+	initialState: initialState,
 	reducers: {
 		setResumeData: (state, action) => {
 			return { ...state, ...action.payload };
@@ -67,6 +69,9 @@ const resumeSlice = createSlice({
 		setSettings: (state, action) => {
 			state.name = action.payload.name;
 		},
+		resetResumeData: (state, action) => {
+			return initialState;
+		},
 	},
 });
 
@@ -80,6 +85,7 @@ export const {
 	setCertifications,
 	setExtras,
 	setSettings,
+	resetResumeData,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;

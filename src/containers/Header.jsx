@@ -2,14 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import InputControl from "../components/InputControl";
 import { setHeader } from "../redux/resumeSlice";
-import { FaUser } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 
-const Header = ({ isNew, step, setStep }) => {
+const Header = ({ isNew }) => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	// get the resume data state
 	const headerData = useSelector((state) => state.resume.data.header);
@@ -26,8 +24,8 @@ const Header = ({ isNew, step, setStep }) => {
 	const [linkedin, setLinkedin] = useState("");
 	const [website, setWebsite] = useState("");
 
+	//! to refresh the initial values of the fields
 	if (!isNew) {
-		// to refresh the initial values of the fields
 		// eslint-disable-next-line react-hooks/rules-of-hooks
 		useEffect(() => {
 			setFirstname(headerData.firstname);
@@ -42,6 +40,23 @@ const Header = ({ isNew, step, setStep }) => {
 			setWebsite(headerData.website);
 		}, [headerData]);
 	}
+
+	//! to update the global state when input value changes
+	useEffect(() => {
+		handleEdit();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [
+		firstname,
+		lastname,
+		profession,
+		city,
+		country,
+		pincode,
+		phone,
+		email,
+		linkedin,
+		website,
+	]);
 
 	//! to handle form field value changes
 	const firstnameChange = (e) => {
@@ -75,15 +90,8 @@ const Header = ({ isNew, step, setStep }) => {
 		setWebsite(e.target.value);
 	};
 
-	//! to handle back button
-	const handleBack = (e) => {
-		e.preventDefault();
-		navigate("/dashboard");
-	};
-
-	//! to handle next button
-	const handleNext = (e) => {
-		e.preventDefault();
+	//! to handle input edit
+	const handleEdit = () => {
 		const data = {
 			firstname: firstname,
 			lastname: lastname,
@@ -97,22 +105,19 @@ const Header = ({ isNew, step, setStep }) => {
 			website: website,
 		};
 		dispatch(setHeader(data));
-		setStep((prev) => prev + 1);
 	};
-
-	// console.log(firstname);
 
 	return (
 		<div className="header w-full">
-			<div className="header--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-12">
+			<div className="header--container w-full flex flex-col justify-center items-start gap-8">
 				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-2 text-2xl text-primary">
-						<FaUser />
-						<h1 className="header--title font-bold text-3xl text-primary">
+					<div className="flex justify-center items-center gap-2 text-lg text-primary">
+						<FaUserAlt />
+						<h1 className="header--title font-semibold text-2xl text-primary">
 							Personal Details
 						</h1>
 					</div>
-					<p className="header--subheading text-grey-three">
+					<p className="header--subheading text-sm text-grey-three">
 						Let the employers know how to contact you
 					</p>
 				</div>
@@ -131,21 +136,25 @@ const Header = ({ isNew, step, setStep }) => {
 						value={lastname}
 						onChange={lastnameChange}
 					/>
-					<InputControl
-						type="text"
-						label="Job Title"
-						placeholder="e.g. Web Developer"
-						hint="Add a title that quickly describes your overall experience or add the title you are current applying to"
-						value={profession}
-						onChange={professionChange}
-					/>
-					<InputControl
-						type="text"
-						label="Email"
-						placeholder="e.g. abirsantra@gmail.com"
-						value={email}
-						onChange={emailChange}
-					/>
+					<div className="col-span-2">
+						<InputControl
+							type="text"
+							label="Headline"
+							placeholder="e.g. Web Developer"
+							hint="Add a title that quickly describes your overall experience or add the title you are current applying to"
+							value={profession}
+							onChange={professionChange}
+						/>
+					</div>
+					<div className="col-span-2">
+						<InputControl
+							type="text"
+							label="Email"
+							placeholder="e.g. abirsantra@gmail.com"
+							value={email}
+							onChange={emailChange}
+						/>
+					</div>
 					<InputControl
 						type="text"
 						label="City"
@@ -174,27 +183,23 @@ const Header = ({ isNew, step, setStep }) => {
 						value={phone}
 						onChange={phoneChange}
 					/>
-					<InputControl
-						type="text"
-						label="Portfolio Website Link"
-						hint="Add your portfolio website link if you have one"
-						value={website}
-						onChange={websiteChange}
-					/>
-					<InputControl
-						type="text"
-						label="Linkedin Profile Link"
-						value={linkedin}
-						onChange={linkedinChange}
-					/>
-				</div>
-				<div className="header--buttons w-full flex justify-between items-center">
-					<button className="prev btn secondary--btn" onClick={handleBack}>
-						Back
-					</button>
-					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Education
-					</button>
+					<div className="col-span-2">
+						<InputControl
+							type="text"
+							label="Portfolio Website Link"
+							hint="Add your portfolio website link if you have one"
+							value={website}
+							onChange={websiteChange}
+						/>
+					</div>
+					<div className="col-span-2">
+						<InputControl
+							type="text"
+							label="Linkedin Profile Link"
+							value={linkedin}
+							onChange={linkedinChange}
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

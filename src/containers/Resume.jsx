@@ -9,9 +9,9 @@ const Resume = () => {
 	const data = useSelector((state) => state.resume.data);
 
 	return (
-		<div className="resume w-full max-w-[595px] self-center border border-grey-four">
+		<div className="resume w-full max-w-[595px] min-h-[842px] bg-white self-center border border-grey-four">
 			<div
-				className="resume--container w-full min-h-[842px] p-4 px-4 flex justify-start items-start flex-col gap-4"
+				className="resume--container w-full  p-4 px-4 flex justify-start items-start flex-col gap-4"
 				id="resume"
 			>
 				{/* Header */}

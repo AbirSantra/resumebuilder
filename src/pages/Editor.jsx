@@ -10,6 +10,9 @@ import Certifications from "../containers/Certifications";
 import Extra from "../containers/Extra";
 import Finalize from "../containers/Finalize";
 import Preview from "../containers/Preview";
+import Resume from "../containers/Resume";
+import FormSwitcher from "../components/FormSwitcher";
+import Divider from "../components/Divider";
 
 const Editor = () => {
 	// to store the id of the resume
@@ -27,8 +30,8 @@ const Editor = () => {
 	// to store the current step
 	const [step, setStep] = useState(1);
 
-	// to switch the editor body
-	const editorBody = () => {
+	//! to switch the form body
+	const formBody = () => {
 		switch (step) {
 			case 1:
 				return <Header isNew={isNew} step={step} setStep={setStep} />;
@@ -55,9 +58,20 @@ const Editor = () => {
 
 	return (
 		<div className="editor w-full flex justify-center items-center">
-			<div className="editor--container w-full max-w-[1100px] px-4 sm:px-8 lg:px-16 py-16 flex flex-col justify-center items-center gap-16">
-				<div className="editor--body w-full flex justify-center items-center">
-					{editorBody()}
+			<div className="editor--container w-full h-[calc(100vh-5rem)] grid grid-cols-[600px_auto]">
+				{/* Form */}
+				<div className="relative flex flex-col overflow-auto">
+					<FormSwitcher currentStep={step} setStep={setStep} />
+					<Divider />
+					<div className="section--padding py-12 w-full flex flex-col gap-12 overflow-auto">
+						<Header isNew={isNew} />
+						<Divider />
+						<Education isNew={isNew} step={step} setStep={setStep} />
+					</div>
+				</div>
+				{/* Preview */}
+				<div className="bg-grey-four section--padding w-full flex justify-center items-center">
+					<Resume />
 				</div>
 			</div>
 		</div>

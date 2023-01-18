@@ -92,7 +92,7 @@ const Education = ({ isNew, setStep }) => {
 
 	return (
 		<div className="education w-full">
-			<div className="education--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
+			<div className="education--container w-full flex flex-col justify-start items-start gap-8">
 				{/* Header */}
 				<FormSectionHeader
 					icon={<FaUserGraduate size={22} />}

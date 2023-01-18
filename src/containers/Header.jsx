@@ -125,14 +125,14 @@ const Header = ({ isNew }) => {
 					<InputControl
 						type="text"
 						label="Firstname"
-						placeholder="e.g. Abir"
+						placeholder="Abir"
 						value={firstname}
 						onChange={firstnameChange}
 					/>
 					<InputControl
 						type="text"
 						label="Lastname"
-						placeholder="e.g. Santra"
+						placeholder="Santra"
 						value={lastname}
 						onChange={lastnameChange}
 					/>
@@ -140,7 +140,7 @@ const Header = ({ isNew }) => {
 						<InputControl
 							type="text"
 							label="Headline"
-							placeholder="e.g. Web Developer"
+							placeholder="MERN Web Developer"
 							hint="Add a title that quickly describes your overall experience or add the title you are current applying to"
 							value={profession}
 							onChange={professionChange}
@@ -150,7 +150,7 @@ const Header = ({ isNew }) => {
 						<InputControl
 							type="text"
 							label="Email"
-							placeholder="e.g. abirsantra@gmail.com"
+							placeholder="exampleemail@gmail.com"
 							value={email}
 							onChange={emailChange}
 						/>
@@ -158,28 +158,28 @@ const Header = ({ isNew }) => {
 					<InputControl
 						type="text"
 						label="City"
-						placeholder="e.g. Kolkata"
+						placeholder="Kolkata"
 						value={city}
 						onChange={cityChange}
 					/>
 					<InputControl
 						type="text"
 						label="Country"
-						placeholder="e.g. India"
+						placeholder="India"
 						value={country}
 						onChange={countryChange}
 					/>
 					<InputControl
 						type="text"
-						label="Pincode"
-						placeholder="e.g. 711106"
+						label="Zipcode"
+						placeholder="123 456"
 						value={pincode}
 						onChange={pincodeChange}
 					/>
 					<InputControl
 						type="text"
 						label="Phone"
-						placeholder="e.g. 1234567890"
+						placeholder="+00 1234567890"
 						value={phone}
 						onChange={phoneChange}
 					/>
@@ -187,6 +187,7 @@ const Header = ({ isNew }) => {
 						<InputControl
 							type="text"
 							label="Portfolio Website Link"
+							placeholder="www.abirsantra.com"
 							hint="Add your portfolio website link if you have one"
 							value={website}
 							onChange={websiteChange}
@@ -195,7 +196,8 @@ const Header = ({ isNew }) => {
 					<div className="col-span-2">
 						<InputControl
 							type="text"
-							label="Linkedin Profile Link"
+							label="Linkedin Profile Url"
+							placeholder="www.linkedin.com/in/[ yourprofilename ]"
 							value={linkedin}
 							onChange={linkedinChange}
 						/>

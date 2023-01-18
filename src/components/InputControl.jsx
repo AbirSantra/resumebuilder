@@ -42,7 +42,7 @@ const InputControl = ({ label, textarea, hint, type, generate, ...props }) => {
 				)}
 
 				{/* Input Label */}
-				<label className="absolute left-1 -top-[12px] text-[13px] font-medium bg-white px-1 text-neutral-500 peer-focus:text-primary ml-1">
+				<label className="absolute left-1 -top-[10px] text-[11px] font-semibold bg-white px-1 text-slate-400 peer-focus:text-primary ml-1 uppercase">
 					{label}
 				</label>
 

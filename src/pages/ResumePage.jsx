@@ -1,31 +1,41 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useGetResumeQuery } from "../api/resumeApiSlice";
 import { MdLocationPin } from "react-icons/md";
 import { FaPhoneAlt, FaEnvelope, FaLink, FaLinkedin } from "react-icons/fa";
 import Divider from "../components/Divider";
 
-const Resume = () => {
-	// get the resume data state
-	const data = useSelector((state) => state.resume.data);
+const ResumePage = () => {
+	// to store the id of the target resume
+	const { id } = useParams();
 
-	return (
-		<div className="resume w-full max-w-[595px] min-h-[842px] bg-white self-center border border-grey-four">
+	// fetch the resume data
+	const { data: resumeData, isLoading } = useGetResumeQuery(id);
+
+	// console.log(resumeData?.data);
+
+	const data = resumeData?.data;
+
+	return isLoading ? (
+		<div>Loading Resume</div>
+	) : (
+		<div className="resume w-full flex justify-center items-center">
 			<div
-				className="resume--container w-full  p-4 px-4 flex justify-start items-start flex-col gap-4"
+				className="resume--container section w-full py-16 flex justify-start items-start flex-col gap-12"
 				id="resume"
 			>
 				{/* Header */}
 				<div className="header flex flex-col gap-4">
 					<div>
-						<h1 className="name font-bold text-2xl">
+						<h1 className="name font-bold text-4xl">
 							{data.header.firstname} {data.header.lastname}
 						</h1>
-						<p className="text-sm text-primary">{data.header.profession}</p>
+						<p className="text-xl text-primary">{data.header.profession}</p>
 					</div>
 					{/* Contact */}
-					<div className="contact--container font-bold w-full flex flex-wrap gap-y-2 gap-4 text-[0.6rem] text-primary">
+					<div className="contact--container font-bold w-full flex flex-wrap gap-y-2 gap-4 text-sm text-primary">
 						<p className="contact flex justify-center items-center gap-2">
-							<MdLocationPin />
+							<MdLocationPin size={18} />
 							<span className="font-medium text-grey-one">
 								{data.header.city}, {data.header.country} -{data.header.pincode}
 							</span>
@@ -49,7 +59,7 @@ const Resume = () => {
 							</span>
 						</p>
 						<p className="contact flex justify-center items-center gap-2">
-							<FaLinkedin />
+							<FaLinkedin size={16} />
 							<span className="font-medium text-grey-one">
 								{data.header.linkedin}
 							</span>
@@ -58,14 +68,14 @@ const Resume = () => {
 				</div>
 
 				{/* Skills */}
-				<div className="container w-full flex flex-col justify-start items-start gap-1">
-					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+				<div className="w-full flex flex-col justify-start items-start gap-1">
+					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-sm">
 						Skills
 					</div>
 					<Divider />
-					<div className="skills--content mt-1 text-[0.7rem] flex justify-start items-start flex-wrap gap-2">
+					<div className="skills--content text-sm mt-2 flex justify-start items-start flex-wrap gap-2">
 						{data.skills.map((skill) => (
-							<div className="skill--item bg-primary-light px-2 font-semibold rounded-md text-white font-Ubuntu">
+							<div className="skill--item bg-primary-light py-1 px-3 font-medium text-white rounded-md">
 								{skill}
 							</div>
 						))}
@@ -74,20 +84,20 @@ const Resume = () => {
 
 				{/* Experience */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+					<div className="font-bold text-primary uppercase font-Ubuntu text-sm">
 						Experience
 					</div>
 					<Divider />
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="mt-4 flex flex-col justify-start items-start gap-4">
 						{data.experience.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl">
 									{item.position}, {item.employer}
 								</div>
-								<div className="text-primary text-[0.6rem] font-semibold font-Ubuntu">
+								<div className="text-primary text-xs font-semibold">
 									({item.startdate} to {item.enddate})
 								</div>
-								<div className="experience--description text-[0.6rem] font-Ubuntu text-grey-three">
+								<div className="experience--description text-grey-three mt-2 font-Ubuntu">
 									{item.description}
 								</div>
 							</div>
@@ -97,23 +107,23 @@ const Resume = () => {
 
 				{/* Projects */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
 						Projects
 					</div>
 					<Divider />
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="mt-4 flex flex-col justify-start items-start gap-6">
 						{data.projects.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex gap-4">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl flex items-center gap-4">
 									{item.name}{" "}
-									<span className="font-bold text-[0.6rem] underline">
+									<a href={item.url} className="font-bold text-xs underline">
 										Link
-									</span>
+									</a>
 								</div>
-								<div className="text-primary text-[0.6rem] font-semibold font-Ubuntu">
+								<div className="text-primary text-xs font-semibold">
 									({item.startdate} to {item.enddate})
 								</div>
-								<div className="experience--description text-[0.6rem] font-Ubuntu text-grey-three">
+								<div className="experience--description text-grey-three mt-1 font-Ubuntu">
 									{item.description}
 								</div>
 							</div>
@@ -123,24 +133,22 @@ const Resume = () => {
 
 				{/* Education */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
 						Education
 					</div>
 					<Divider />
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="mt-4 flex flex-col justify-start items-start gap-6">
 						{data.education.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex justify-center items-center gap-4">
-									{item.institute}{" "}
-									<div className="text-grey-three text-[0.6rem] font-semibold font-Ubuntu">
-										({item.startdate} to {item.enddate})
-									</div>
-								</div>
-								<span className="font-semibold text-primary text-[0.6rem]">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl">{item.institute} </div>
+								<span className="font-semibold text-primary text-base">
 									{item.degree}
 								</span>
+								<div className="text-primary text-xs font-semibold">
+									({item.startdate} to {item.enddate})
+								</div>
 
-								<div className="experience--description text-[0.6rem] font-Ubuntu">
+								<div className="experience--description font-Ubuntu text-grey-three">
 									Score: {item.score}
 								</div>
 							</div>
@@ -150,22 +158,22 @@ const Resume = () => {
 
 				{/* Certifications */}
 				<div className="w-full flex flex-col justify-start items-start gap-1">
-					<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+					<div className="font-bold text-primary text-sm uppercase font-Ubuntu">
 						Certifications
 					</div>
 					<div className="divider w-full h-[1px] bg-grey-four"></div>
-					<div className="mt-1 text-[0.7rem] flex flex-col justify-start items-start gap-2">
+					<div className="mt-4 flex flex-col justify-start items-start gap-4">
 						{data.certifications.map((item) => (
-							<div className="w-full flex flex-col justify-start items-start">
-								<div className="font-bold text-xs flex justify-center items-center gap-4">
+							<div className="w-full flex flex-col justify-start items-start gap-1">
+								<div className="font-bold text-xl">
 									{item.certificationname}{" "}
 								</div>
-								<div className="text-primary text-[0.6rem] font-semibold flex gap-4">
+								<div className="font-semibold text-primary text-sm flex gap-4">
 									Issuer: {item.organization}{" "}
-									<span>Issued On: {item.date}</span>
+									<span className="">Issued On: {item.date}</span>
 								</div>
 
-								<div className="experience--description text-[0.6rem] font-Ubuntu">
+								<div className="experience--description font-Ubuntu">
 									Certificate Link: {item.url}
 								</div>
 							</div>
@@ -188,4 +196,4 @@ const Resume = () => {
 	);
 };
 
-export default Resume;
+export default ResumePage;

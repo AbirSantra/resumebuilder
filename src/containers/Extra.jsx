@@ -145,15 +145,18 @@ const Extra = ({ isNew, setStep }) => {
 								value={title}
 								onChange={titleChange}
 							/>
-							<InputControl
-								textarea
-								rows="8"
-								type="text"
-								label="Description"
-								placeholder="Describe your section"
-								value={description}
-								onChange={descriptionChange}
-							/>
+							<div className="col-span-2">
+								<InputControl
+									textarea
+									generate
+									rows="8"
+									type="text"
+									label="Description"
+									placeholder="Describe your section"
+									value={description}
+									onChange={descriptionChange}
+								/>
+							</div>
 						</div>
 						<button className="btn secondary--btn mt-4" onClick={addExtra}>
 							+ Add Section

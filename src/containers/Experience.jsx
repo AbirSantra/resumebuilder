@@ -179,28 +179,32 @@ const Experience = ({ isNew, setStep }) => {
 							/>
 
 							<InputControl
-								type="month"
+								type="text"
 								label="Start Date"
+								placeholder="Jan 2022"
 								value={startdate}
 								onChange={startDateChange}
 							/>
 							<InputControl
-								type="month"
+								type="text"
 								label="End Date"
+								placeholder="Jul 2023"
 								value={enddate}
 								onChange={endDateChange}
 							/>
-
-							<InputControl
-								textarea
-								rows="8"
-								type="text"
-								label="Descrition"
-								placeholder="e.g Migrated the frontend to a new technology reducing load times by 60% "
-								hint="Describe your various roles and responsibilities in the job. Write about all the things that you achieved or learned in this role. If possible, use numbers/facts (Achieved X, measured by Y, by doing Z)."
-								value={description}
-								onChange={descriptionChange}
-							/>
+							<div className="col-span-2">
+								<InputControl
+									textarea
+									generate
+									rows="8"
+									type="text"
+									label="Description"
+									placeholder="e.g Migrated the frontend to a new technology reducing load times by 60% "
+									hint="Describe your various roles and responsibilities in the job. Write about all the things that you achieved or learned in this role. If possible, use numbers/facts (Achieved X, measured by Y, by doing Z)."
+									value={description}
+									onChange={descriptionChange}
+								/>
+							</div>
 						</div>
 						<button className="btn secondary--btn mt-4" onClick={addExperience}>
 							+ Add Experience

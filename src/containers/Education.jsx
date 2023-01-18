@@ -176,14 +176,16 @@ const Education = ({ isNew, setStep }) => {
 							/>
 							<div className="w-full flex justify-center items-center gap-4">
 								<InputControl
-									type="month"
+									type="text"
 									label="Start Date"
+									placeholder="Nov 2020"
 									value={start}
 									onChange={startChange}
 								/>
 								<InputControl
-									type="month"
+									type="text"
 									label="End Date"
+									placeholder="Jan 2024"
 									value={end}
 									onChange={endChange}
 								/>

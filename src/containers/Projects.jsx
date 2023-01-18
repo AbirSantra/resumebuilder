@@ -176,27 +176,31 @@ const Projects = ({ isNew, setStep }) => {
 							/>
 
 							<InputControl
-								type="month"
+								type="text"
 								label="Start Date"
+								placeholder="Jan 2022"
 								value={startdate}
 								onChange={startDateChange}
 							/>
 							<InputControl
-								type="month"
+								type="text"
 								label="End Date"
+								placeholder="Mar 2022"
 								value={enddate}
 								onChange={endDateChange}
 							/>
-
-							<InputControl
-								textarea
-								rows="8"
-								type="text"
-								label="Description"
-								hint="Describe your project in details - what it does, what problem does it solve, what tool did you use , what did you learn, what were some obstacles that you overcame while building this project. However, do not write an essay. Be precise and concise"
-								value={description}
-								onChange={descriptionChange}
-							/>
+							<div className="col-span-2">
+								<InputControl
+									textarea
+									generate
+									rows="8"
+									type="text"
+									label="Description"
+									hint="Describe your project in details - what it does, what problem does it solve, what tool did you use , what did you learn, what were some obstacles that you overcame while building this project. However, do not write an essay. Be precise and concise"
+									value={description}
+									onChange={descriptionChange}
+								/>
+							</div>
 						</div>
 						<button className="btn secondary--btn mt-4" onClick={addProject}>
 							+ Add Project

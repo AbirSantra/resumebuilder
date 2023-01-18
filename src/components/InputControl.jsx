@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { BiHide, BiShowAlt } from "react-icons/bi";
-import { FaRegQuestionCircle } from "react-icons/fa";
+import { FaRegQuestionCircle, FaMagic } from "react-icons/fa";
 
-const InputControl = ({ label, textarea, hint, type, ...props }) => {
+const InputControl = ({ label, textarea, hint, type, generate, ...props }) => {
 	// to store the show/hide password state
 	const [showPass, setShowPass] = useState(type === "password" ? false : true);
 
@@ -12,13 +12,21 @@ const InputControl = ({ label, textarea, hint, type, ...props }) => {
 		setShowPass((prev) => !prev);
 	};
 
+	//! to generate text
+	// const handleGenerate = () => {
+	// 	const query = textarea.value;
+	// 	console.log(query);
+	// };
+
 	return (
-		<div
-			className={
-				"w-full text-grey-three focus-within:text-primary  flex justify-center items-start flex-col gap-1"
-			}
-		>
-			<div className="relative w-full flex justify-center items-center px-4 py-3 rounded-md border border-grey-four focus-within:border-primary ">
+		<div className="w-full text-grey-three focus-within:text-primary  flex justify-center items-start flex-col gap-1">
+			<div
+				className={
+					textarea
+						? "relative w-full flex justify-center items-start gap-2 px-4 py-3 rounded-md border border-grey-four focus-within:border-primary"
+						: "relative w-full flex justify-center items-center gap-2 px-4 py-3 rounded-md border border-grey-four focus-within:border-primary "
+				}
+			>
 				{/* Input Area */}
 				{textarea ? (
 					<textarea
@@ -51,10 +59,20 @@ const InputControl = ({ label, textarea, hint, type, ...props }) => {
 				{/* Hint ToolTip */}
 				{hint ? (
 					<div className="relative">
-						<FaRegQuestionCircle className="peer cursor-pointer" />
-						<span className="absolute hidden z-20 peer-hover:flex top-6 right-6 w-[200px] bg-grey-one text-grey-four text-sm rounded-lg p-4">
+						<FaRegQuestionCircle className="peer cursor-pointer" size={18} />
+						<span className="absolute hidden z-10 peer-hover:flex top-4 left-6 w-[200px] bg-grey-one text-grey-four text-sm rounded-lg p-4">
 							{hint}
 						</span>
+					</div>
+				) : null}
+
+				{/* Generate */}
+				{generate ? (
+					<div
+						className="ml-2 text-lg cursor-pointer hover:text-primary duration-300 ease-in-out"
+						// onClick={handleGenerate}
+					>
+						<FaMagic />
 					</div>
 				) : null}
 			</div>

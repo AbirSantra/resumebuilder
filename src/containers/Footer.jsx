@@ -30,7 +30,7 @@ const Footer = () => {
 							</a>
 						</div>
 					</div>
-					<div className="footer--links flex justify-center items-start gap-16">
+					{/* <div className="footer--links flex justify-center items-start gap-16">
 						<div className="flex flex-col justify-start items-start">
 							<h4 className="mb-2">Company</h4>
 							<p className="text-sm text-grey-three">Terms</p>
@@ -50,11 +50,11 @@ const Footer = () => {
 							<p className="text-sm text-grey-three">Twitter</p>
 							<p className="text-sm text-grey-three">Linkedin</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<div className="footer--divider h-[1px] w-full bg-grey-one"></div>
-			<div className="footer--message py-4 text-grey-three text-sm">
+			<div className="footer--message py-4 text-grey-three text-xs">
 				Crafted with ❤️ by Team INCOGNI70
 			</div>
 		</footer>

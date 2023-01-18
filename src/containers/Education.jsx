@@ -147,7 +147,7 @@ const Education = ({ isNew, setStep }) => {
 				{/* New Education Form */}
 				{form && (
 					<div className="education--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-4">
-						<h1 className="education--title font-medium mb-4 text-sm">
+						<h1 className="education--title font-medium mb-4 ">
 							Add New Education
 						</h1>
 						<div className="education--form w-full  grid gap-x-4 gap-y-8 ">
@@ -196,7 +196,7 @@ const Education = ({ isNew, setStep }) => {
 							className="btn primary--btn text-sm mt-4"
 							onClick={addEducation}
 						>
-							+ Add
+							<FiPlusCircle size={18} /> Add
 						</button>
 					</div>
 				)}

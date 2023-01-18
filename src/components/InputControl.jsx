@@ -60,7 +60,7 @@ const InputControl = ({ label, textarea, hint, type, generate, ...props }) => {
 				{hint ? (
 					<div className="relative">
 						<FaRegQuestionCircle className="peer cursor-pointer" size={18} />
-						<span className="absolute hidden z-10 peer-hover:flex top-4 left-6 w-[200px] bg-grey-one text-grey-four text-sm rounded-lg p-4">
+						<span className="absolute hidden z-10 peer-hover:flex bottom-6 right-6 w-[200px] bg-grey-one text-grey-four text-sm rounded-lg p-4 font-Ubuntu">
 							{hint}
 						</span>
 					</div>

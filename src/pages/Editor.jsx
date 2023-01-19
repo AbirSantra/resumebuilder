@@ -46,32 +46,6 @@ const Editor = () => {
 	// to store the current step
 	const [step, setStep] = useState(1);
 
-	//! to switch the form body
-	const formBody = () => {
-		switch (step) {
-			case 1:
-				return <Header isNew={isNew} step={step} setStep={setStep} />;
-			case 2:
-				return <Education isNew={isNew} step={step} setStep={setStep} />;
-			case 4:
-				return <Skills isNew={isNew} step={step} setStep={setStep} />;
-			case 3:
-				return <Experience isNew={isNew} step={step} setStep={setStep} />;
-			case 5:
-				return <Projects isNew={isNew} step={step} setStep={setStep} />;
-			case 6:
-				return <Certifications isNew={isNew} step={step} setStep={setStep} />;
-			case 7:
-				return <Extra isNew={isNew} step={step} setStep={setStep} />;
-			case 8:
-				return <Finalize isNew={isNew} step={step} setStep={setStep} />;
-			case 9:
-				return <Preview isNew={isNew} id={id} step={step} setStep={setStep} />;
-			default:
-				return null;
-		}
-	};
-
 	return (
 		<div className="editor w-full flex justify-center items-center">
 			<div className="editor--container w-full h-[calc(100vh-5rem)] grid grid-cols-[600px_auto]">
@@ -91,6 +65,8 @@ const Editor = () => {
 						<Projects />
 						<Divider />
 						<Certifications />
+						<Divider />
+						<Extra />
 						<Divider />
 					</div>
 				</div>

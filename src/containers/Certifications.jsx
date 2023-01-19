@@ -113,7 +113,7 @@ const Certifications = ({ isNew, setStep }) => {
 								</p>
 							</div>
 							<div
-								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
+								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary duration-200 ease-in-out"
 								onClick={() => {
 									const newList = [...certificates];
 									newList.splice(

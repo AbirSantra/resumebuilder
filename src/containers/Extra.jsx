@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { FiTrash2 } from "react-icons/fi";
+import { FiPlusCircle, FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setExtras as setExtrasAction } from "../redux/resumeSlice";
-import { HiViewGridAdd } from "react-icons/hi";
+import FormSectionHeader from "../components/FormSectionHeader";
+import { FaShapes } from "react-icons/fa";
 
 const Extra = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
-	const headerData = useSelector((state) => state.resume.data.extra);
+	const extraData = useSelector((state) => state.resume.data.extra);
 
 	// to store the extras
-	const [extras, setExtras] = useState([]);
+	const [extras, setExtras] = useState(extraData);
 
-	if (!isNew) {
-		// to refresh the initial values of the extras
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useEffect(() => {
-			setExtras(headerData);
-		}, [headerData]);
-	}
+	//! to refresh the initial values of the extras
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	useEffect(() => {
+		setExtras(extraData);
+	}, [extraData]);
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);
@@ -49,6 +48,17 @@ const Extra = ({ isNew, setStep }) => {
 		setForm(false);
 	};
 
+	//! to edit the global state of extra sections
+	const handleEdit = () => {
+		dispatch(setExtrasAction(extras));
+	};
+
+	//! to update the global state when sections are added or deleted
+	useEffect(() => {
+		handleEdit();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [extras]);
+
 	//! to add new extra
 	const addExtra = () => {
 		const newExtras = [
@@ -60,54 +70,31 @@ const Extra = ({ isNew, setStep }) => {
 		];
 		setExtras(newExtras);
 		resetForm();
-	};
-
-	//! to handle back button
-	const handleBack = (e) => {
-		e.preventDefault();
-		setStep((prev) => prev - 1);
-	};
-
-	//! to handle next button
-	const handleNext = (e) => {
-		e.preventDefault();
-		dispatch(setExtrasAction(extras));
-		setStep((prev) => prev + 1);
+		handleEdit();
 	};
 
 	return (
 		<div className="extras w-full">
-			<div className="extras--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
-						<HiViewGridAdd />
-						<h1 className="header--title font-bold text-3xl text-primary">
-							Add Extra Sections
-						</h1>
-					</div>
-					<p className="header--subheading text-grey-three">
-						Use this page to add extra sections to your resume. You can add
-						sections like "Awards" or "Roles & Responsibilities" and describe
-						them.
-					</p>
-				</div>
+			<div className="extras--container w-full flex flex-col justify-start items-start gap-8">
+				{/* Form Header */}
+				<FormSectionHeader
+					icon={<FaShapes size={24} />}
+					title="Custom Sections"
+					subtitle="You can add your own sections to your resume such as 'Awards & Acheivement' or 'Roles and Responsibilities' and describe them"
+				/>
 
+				{/* Extra list */}
 				<div className="extra--list w-full flex flex-col justify-start items-start gap-4">
 					{extras.map((extra) => (
 						<div
-							className="extra--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four"
+							className="extra--card w-full flex justify-between items-center rounded-lg p-4 border border-grey-four"
 							key={extra.title}
 						>
 							<div className="card--content w-full flex flex-col justify-start items-start ">
-								<p className="card--name font-semibold text-lg">
-									{extra.title}
-								</p>
-								<p className="card--desc text-grey-three text-sm">
-									{extra.description.slice(0, 99)}...
-								</p>
+								<p className="card--name font-medium text-sm">{extra.title}</p>
 							</div>
 							<div
-								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
+								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary duration-200 ease-in-out"
 								onClick={() => {
 									const newList = [...extras];
 									newList.splice(
@@ -117,27 +104,30 @@ const Extra = ({ isNew, setStep }) => {
 									setExtras(newList);
 								}}
 							>
-								<FiTrash2 size={24} />
+								<FiTrash2 size={22} />
 							</div>
 						</div>
 					))}
-				</div>
-				{!form && extras.length !== 0 && (
-					<div
-						className="extras--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
-						onClick={openForm}
-					>
-						<div className="card--content w-full flex flex-col justify-start items-start ">
-							<p className="font-semibold ">+ Add Section</p>
+					{!form && (
+						<div
+							className="w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
+							onClick={openForm}
+						>
+							<div className="card--content w-full  flex justify-center items-center gap-2 ">
+								<FiPlusCircle size={20} />
+								<p className="font-medium text-sm">Add Section</p>
+							</div>
 						</div>
-					</div>
-				)}
-				{(form || extras.length === 0) && (
-					<div className="extras--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-8 ">
-						<h1 className="extras--title font-semibold text-lg">
+					)}
+				</div>
+
+				{/* New Extra form */}
+				{form && (
+					<div className="extras--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-4 ">
+						<h1 className="project--title font-medium mb-4 ">
 							Add New Section
 						</h1>
-						<div className="extras--form w-full  grid grid-cols-2 gap-x-4 gap-y-8 ">
+						<div className="extras--form w-full  grid grid-cols-1 gap-x-4 gap-y-8 ">
 							<InputControl
 								type="text"
 								label="Section Title"
@@ -145,33 +135,24 @@ const Extra = ({ isNew, setStep }) => {
 								value={title}
 								onChange={titleChange}
 							/>
-							<div className="col-span-2">
-								<InputControl
-									textarea
-									generate
-									rows="8"
-									type="text"
-									label="Description"
-									placeholder="Describe your section"
-									value={description}
-									onChange={descriptionChange}
-								/>
-							</div>
+							<InputControl
+								textarea
+								rows="8"
+								type="text"
+								label="Description"
+								placeholder="Describe your section"
+								value={description}
+								onChange={descriptionChange}
+							/>
 						</div>
-						<button className="btn secondary--btn mt-4" onClick={addExtra}>
-							+ Add Section
+						<button
+							className="btn primary--btn text-sm mt-4"
+							onClick={addExtra}
+						>
+							<FiPlusCircle size={18} /> Add
 						</button>
 					</div>
 				)}
-
-				<div className="extra--buttons w-full flex justify-between items-center">
-					<button className="prev btn secondary--btn" onClick={handleBack}>
-						Back
-					</button>
-					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Finalize
-					</button>
-				</div>
 			</div>
 		</div>
 	);

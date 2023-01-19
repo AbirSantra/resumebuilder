@@ -134,7 +134,7 @@ const Projects = ({ isNew, setStep }) => {
 						>
 							<div className="card--content w-full  flex justify-center items-center gap-2 ">
 								<FiPlusCircle size={20} />
-								<p className="font-medium text-sm">Add Experience</p>
+								<p className="font-medium text-sm">Add Project</p>
 							</div>
 						</div>
 					)}

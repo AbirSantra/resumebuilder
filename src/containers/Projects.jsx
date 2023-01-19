@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { FiTrash2 } from "react-icons/fi";
+import { FiPlusCircle, FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setProjects as setProjectsAction } from "../redux/resumeSlice";
 import { BsFillGearFill } from "react-icons/bs";
+import FormSectionHeader from "../components/FormSectionHeader";
+import { FaRocket } from "react-icons/fa";
 
 const Projects = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
-	const headerData = useSelector((state) => state.resume.data.projects);
+	const projectData = useSelector((state) => state.resume.data.projects);
 
 	// to store the projects
-	const [projects, setProjects] = useState([]);
+	const [projects, setProjects] = useState(projectData);
 
-	if (!isNew) {
-		// to refresh the initial values of the projects
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useEffect(() => {
-			setProjects(headerData);
-		}, [headerData]);
-	}
+	//! to refresh the initial values of the projects
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	useEffect(() => {
+		setProjects(projectData);
+	}, [projectData]);
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);
@@ -64,6 +64,17 @@ const Projects = ({ isNew, setStep }) => {
 		setForm(false);
 	};
 
+	//! to update the global state when projects are added or deleted
+	useEffect(() => {
+		handleEdit();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [projects]);
+
+	//! to handle edit global state
+	const handleEdit = () => {
+		dispatch(setProjectsAction(projects));
+	};
+
 	//! to add new project
 	const addProject = () => {
 		const newProjects = [
@@ -78,58 +89,31 @@ const Projects = ({ isNew, setStep }) => {
 		];
 		setProjects(newProjects);
 		resetForm();
-	};
-
-	//! to handle back button
-	const handleBack = (e) => {
-		e.preventDefault();
-		setStep((prev) => prev - 1);
-	};
-
-	//! to handle next button
-	const handleNext = (e) => {
-		e.preventDefault();
-		dispatch(setProjectsAction(projects));
-		setStep((prev) => prev + 1);
+		handleEdit();
 	};
 
 	return (
 		<div className="projects w-full">
-			<div className="projects--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
-						<BsFillGearFill />
-						<h1 className="header--title font-bold text-3xl text-primary">
-							Projects
-						</h1>
-					</div>
-					<p className="header--subheading text-grey-three">
-						Add your projects. They can be personal projects or group projects.
-						Be sure to mention your learning from each project and your
-						responsibilities in case of group projects
-					</p>
-				</div>
+			<div className="projects--container w-full flex flex-col justify-start items-start gap-8">
+				{/* Form Header */}
+				<FormSectionHeader
+					icon={<FaRocket size={24} />}
+					title="Projects"
+					subtitle="Add your projects here. They can be personal projects or group projects. Be sure to mention your learnings from each project as well as your contributions in case of a group project."
+				/>
 
+				{/* Projects List */}
 				<div className="projects--list w-full flex flex-col justify-start items-start gap-4">
 					{projects.map((project) => (
 						<div
-							className="projects--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four"
+							className="projects--card w-full flex justify-between items-center rounded-lg p-4 border border-grey-four"
 							key={project.name}
 						>
 							<div className="card--content w-full flex flex-col justify-start items-start ">
-								<p className="card--name font-semibold text-lg">
-									{project.name}
-								</p>
-								<p className="card--url text-grey-three text-sm ">
-									&#40;{project.startdate} to {project.enddate}
-									&#41;
-								</p>
-								<p className="card--desc text-grey-three text-sm">
-									{project.description.slice(0, 99)}...
-								</p>
+								<p className="card--name font-medium text-sm">{project.name}</p>
 							</div>
 							<div
-								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary"
+								className="card--actions flex justify-center items-center gap-2 text-sm cursor-pointer hover:text-primary duration-200 ease-in-out"
 								onClick={() => {
 									const newList = [...projects];
 									newList.splice(
@@ -139,31 +123,34 @@ const Projects = ({ isNew, setStep }) => {
 									setProjects(newList);
 								}}
 							>
-								<FiTrash2 size={24} />
+								<FiTrash2 size={22} />
 							</div>
 						</div>
 					))}
-				</div>
-				{!form && projects.length !== 0 && (
-					<div
-						className="project--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
-						onClick={openForm}
-					>
-						<div className="card--content w-full flex flex-col justify-start items-start ">
-							<p className="font-semibold ">+ Add Project</p>
+					{!form && (
+						<div
+							className="w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
+							onClick={openForm}
+						>
+							<div className="card--content w-full  flex justify-center items-center gap-2 ">
+								<FiPlusCircle size={20} />
+								<p className="font-medium text-sm">Add Experience</p>
+							</div>
 						</div>
-					</div>
-				)}
-				{(form || projects.length === 0) && (
-					<div className="projects--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-8 ">
-						<h1 className="projects--title font-semibold text-lg">
+					)}
+				</div>
+
+				{/* New Project Form */}
+				{form && (
+					<div className="projects--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-4 ">
+						<h1 className="project--title font-medium mb-4 ">
 							Add New Project
 						</h1>
 						<div className="projects--form w-full  grid grid-cols-2 gap-x-4 gap-y-8 ">
 							<InputControl
 								type="text"
 								label="Project Name"
-								placeholder="e.g Linkedin Clone"
+								placeholder="Linkedin Clone"
 								value={name}
 								onChange={nameChange}
 							/>
@@ -192,7 +179,6 @@ const Projects = ({ isNew, setStep }) => {
 							<div className="col-span-2">
 								<InputControl
 									textarea
-									generate
 									rows="8"
 									type="text"
 									label="Description"
@@ -202,20 +188,14 @@ const Projects = ({ isNew, setStep }) => {
 								/>
 							</div>
 						</div>
-						<button className="btn secondary--btn mt-4" onClick={addProject}>
-							+ Add Project
+						<button
+							className="btn primary--btn text-sm mt-4"
+							onClick={addProject}
+						>
+							<FiPlusCircle size={18} /> Add
 						</button>
 					</div>
 				)}
-
-				<div className="projects--buttons w-full flex justify-between items-center">
-					<button className="prev btn secondary--btn" onClick={handleBack}>
-						Back
-					</button>
-					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Certifications
-					</button>
-				</div>
 			</div>
 		</div>
 	);

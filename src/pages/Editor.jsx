@@ -88,6 +88,8 @@ const Editor = () => {
 						<Divider />
 						<Experience />
 						<Divider />
+						<Projects />
+						<Divider />
 					</div>
 				</div>
 				{/* Preview */}

@@ -68,6 +68,7 @@ const Editor = () => {
 						<Divider />
 						<Extra />
 						<Divider />
+						<Finalize />
 					</div>
 				</div>
 				{/* Preview */}

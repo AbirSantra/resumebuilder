@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { FiTrash2 } from "react-icons/fi";
+import { FiPlusCircle, FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setCertifications } from "../redux/resumeSlice";
-import { MdVerified } from "react-icons/md";
+import FormSectionHeader from "../components/FormSectionHeader";
+import { GoVerified } from "react-icons/go";
 
 const Certifications = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
 
 	// get the resume data state
-	const headerData = useSelector((state) => state.resume.data.certifications);
+	const certificationData = useSelector(
+		(state) => state.resume.data.certifications
+	);
 
 	// to store the certifications
-	const [certificates, setCertificates] = useState([]);
+	const [certificates, setCertificates] = useState(certificationData);
 
-	if (!isNew) {
-		// to refresh the initial values of the certifications
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useEffect(() => {
-			setCertificates(headerData);
-		}, [headerData]);
-	}
+	//! to refresh the initial values of the certifications
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	useEffect(() => {
+		setCertificates(certificationData);
+	}, [certificationData]);
 
 	// to store form open/close state
 	const [form, setForm] = useState(false);
@@ -59,6 +60,17 @@ const Certifications = ({ isNew, setStep }) => {
 		setForm(false);
 	};
 
+	//! to update global state
+	const handleEdit = () => {
+		dispatch(setCertifications(certificates));
+	};
+
+	//! to update the global state whenever certifications are added or deleted
+	useEffect(() => {
+		handleEdit();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [certificates]);
+
 	//! to add new certification
 	const addCertification = () => {
 		const newCertifications = [
@@ -72,51 +84,32 @@ const Certifications = ({ isNew, setStep }) => {
 		];
 		setCertificates(newCertifications);
 		resetForm();
-	};
-
-	//! to handle back button
-	const handleBack = (e) => {
-		e.preventDefault();
-		setStep((prev) => prev - 1);
-	};
-
-	//! to handle next button
-	const handleNext = (e) => {
-		e.preventDefault();
-		dispatch(setCertifications(certificates));
-		setStep((prev) => prev + 1);
+		handleEdit();
 	};
 
 	return (
 		<div className="certificates w-full">
-			<div className="certificates--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
-						<MdVerified />
-						<h1 className="header--title font-bold text-3xl text-primary">
-							Certifications
-						</h1>
-					</div>
-					<p className="header--subheading text-grey-three">
-						Showcase your various certifications here
-					</p>
-				</div>
+			<div className="certificates--container w-full flex flex-col justify-start items-start gap-8">
+				{/* Form Header */}
+				<FormSectionHeader
+					icon={<GoVerified size={22} />}
+					title="Certifications"
+					subtitle="Showcase your various certifications here."
+				/>
 
+				{/* Certificates List */}
 				<div className="certificates--list w-full flex flex-col justify-start items-start gap-4">
 					{certificates.map((certificate) => (
 						<div
-							className="certificates--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four"
+							className="certificates--card w-full flex justify-between items-center rounded-lg p-4 border border-grey-four"
 							key={certificate.certificationname}
 						>
 							<div className="card--content w-full flex flex-col justify-start items-start ">
-								<p className="card--name font-semibold text-lg">
+								<p className="card--name font-medium text-sm">
 									{certificate.certificationname}
 								</p>
-								<p className="card--url text-grey-three text-sm ">
-									Issue Date: {certificate.date}
-								</p>
-								<p className="card--url text-grey-three text-sm ">
-									Issuing Organization: {certificate.organization}
+								<p className="card--url text-grey-three text-xs ">
+									{certificate.organization}
 								</p>
 							</div>
 							<div
@@ -133,31 +126,34 @@ const Certifications = ({ isNew, setStep }) => {
 									setCertificates(newList);
 								}}
 							>
-								<FiTrash2 size={24} />
+								<FiTrash2 size={22} />
 							</div>
 						</div>
 					))}
-				</div>
-				{!form && certificates.length !== 0 && (
-					<div
-						className="certificates--card w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
-						onClick={openForm}
-					>
-						<div className="card--content w-full flex flex-col justify-start items-start ">
-							<p className="font-semibold ">+ Add Certification</p>
+					{!form && (
+						<div
+							className="w-full flex justify-between items-center rounded-lg p-4 px-6 border border-grey-four cursor-pointer hover:text-primary hover:border-primary duration-300 ease-in-out"
+							onClick={openForm}
+						>
+							<div className="card--content w-full  flex justify-center items-center gap-2 ">
+								<FiPlusCircle size={20} />
+								<p className="font-medium text-sm">Add Certification</p>
+							</div>
 						</div>
-					</div>
-				)}
-				{(form || certificates.length === 0) && (
-					<div className="certificates--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-8 ">
-						<h1 className="certificates--title font-semibold text-lg">
+					)}
+				</div>
+
+				{/* New Certificate form */}
+				{form && (
+					<div className="certificates--new w-full flex flex-col justify-start items-start gap-4 border border-grey-four rounded-lg p-4 ">
+						<h1 className="project--title font-medium mb-4 ">
 							Add New Certificate
 						</h1>
-						<div className="certificates--form w-full  grid grid-cols-2 gap-x-4 gap-y-8 ">
+						<div className="certificates--form w-full  grid grid-cols-1 gap-x-4 gap-y-8 ">
 							<InputControl
 								type="text"
 								label="Certification Name"
-								placeholder="e.g Complete Web Development Bootcamp"
+								placeholder="Complete Web Development Bootcamp"
 								hint="Enter the name of the course or the event for which you received this certificate"
 								value={certificationname}
 								onChange={nameChange}
@@ -165,6 +161,7 @@ const Certifications = ({ isNew, setStep }) => {
 							<InputControl
 								type="text"
 								label="Issuing Organization"
+								placeholder="Udemy"
 								hint="Enter the name of the organization or the event or the person who issued you this certificate"
 								value={organization}
 								onChange={organizationChange}
@@ -185,22 +182,13 @@ const Certifications = ({ isNew, setStep }) => {
 							/>
 						</div>
 						<button
-							className="btn secondary--btn mt-4"
+							className="btn primary--btn text-sm mt-4"
 							onClick={addCertification}
 						>
-							+ Add Certificate
+							<FiPlusCircle size={18} /> Add
 						</button>
 					</div>
 				)}
-
-				<div className="projects--buttons w-full flex justify-between items-center">
-					<button className="prev btn secondary--btn" onClick={handleBack}>
-						Back
-					</button>
-					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Extra Section
-					</button>
-				</div>
 			</div>
 		</div>
 	);

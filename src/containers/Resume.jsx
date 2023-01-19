@@ -177,9 +177,11 @@ const Resume = () => {
 				<div className="w-full flex flex-col justify-start items-start gap-4">
 					{data.extra.map((item) => (
 						<div className="w-full">
-							<div className="font-bold text-grey-three">{item.title}</div>
-							<div className="divider w-full h-[1px] bg-grey-four"></div>
-							<div className="mt-1 text-[0.7rem]">{item.description}</div>
+							<div className="section--title font-bold text-primary uppercase font-Ubuntu text-xs">
+								{item.title}
+							</div>
+							<Divider />
+							<div className="mt-1 text-[0.6rem]">{item.description}</div>
 						</div>
 					))}
 				</div>

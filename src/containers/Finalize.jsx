@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InputControl from "../components/InputControl";
 import { setSettings } from "../redux/resumeSlice";
-import { FaPaintBrush } from "react-icons/fa";
+import { FaPalette } from "react-icons/fa";
 import template1 from "../images/Template1.jpg";
+import FormSectionHeader from "../components/FormSectionHeader";
 
 const Finalize = ({ isNew, setStep }) => {
 	const dispatch = useDispatch();
@@ -27,12 +28,6 @@ const Finalize = ({ isNew, setStep }) => {
 		setName(e.target.value);
 	};
 
-	//! to handle back button
-	const handleBack = (e) => {
-		e.preventDefault();
-		setStep((prev) => prev - 1);
-	};
-
 	//! to handle next button
 	const handleNext = (e) => {
 		e.preventDefault();
@@ -43,24 +38,19 @@ const Finalize = ({ isNew, setStep }) => {
 	return (
 		<div className="settings w-full">
 			<div className="settings--container w-full min-h-[calc(100vh-5rem)] flex flex-col justify-start items-start gap-8">
-				<div className="header--heading w-full flex flex-col justify-start items-start ">
-					<div className="flex justify-center items-center gap-3 text-3xl text-primary">
-						<FaPaintBrush size={24} />
-						<h1 className="header--title font-bold text-3xl text-primary">
-							Customize
-						</h1>
-					</div>
-					<p className="header--subheading text-grey-three">
-						Choose your template and accent color and give your resume a name.
-					</p>
-				</div>
+				{/* Form Header */}
+				<FormSectionHeader
+					icon={<FaPalette size={22} />}
+					title="Customize"
+					subtitle="Choose a template and an accent color to make your resume unique. New templates and colors will be added very soon."
+				/>
 
 				<div className="settings--form w-full flex flex-col justify-start items-start gap-8">
 					{/* Resume Name */}
 					<InputControl
 						type="text"
 						label="Resume Name"
-						placeholder="e.g Resume for Microsoft"
+						placeholder="Resume for Microsoft"
 						value={name}
 						onChange={nameChange}
 					/>
@@ -86,7 +76,7 @@ const Finalize = ({ isNew, setStep }) => {
 						<h2 className="text-[13px] font-medium text-neutral-500">
 							Choose template:{" "}
 						</h2>
-						<div className="w-full grid grid-cols-3 gap-8">
+						<div className="w-full grid grid-cols-2 gap-8">
 							<div className="w-full border rounded-md hover:border-primary ease-in-out duration-200 cursor-pointer overflow-hidden">
 								<img src={template1} alt="template1" />
 							</div>
@@ -98,15 +88,6 @@ const Finalize = ({ isNew, setStep }) => {
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div className="settings--buttons w-full flex justify-between items-center">
-					<button className="prev btn secondary--btn" onClick={handleBack}>
-						Back
-					</button>
-					<button className="next btn primary--btn" onClick={handleNext}>
-						Next: Preview
-					</button>
 				</div>
 			</div>
 		</div>

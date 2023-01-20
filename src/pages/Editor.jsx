@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { resetResumeData, setResumeData } from "../redux/resumeSlice";
 import { useRef } from "react";
+import { PanZoom } from "react-easy-panzoom";
 
 const Editor = () => {
 	const dispatch = useDispatch();
@@ -105,7 +106,7 @@ const Editor = () => {
 		<div className="editor w-full flex justify-center items-center">
 			<div className="editor--container w-full h-[calc(100vh-5rem)] grid grid-cols-[600px_auto]">
 				{/* Form */}
-				<div className="flex flex-col overflow-auto">
+				<div className="flex flex-col overflow-auto z-10 bg-white drop-shadow-lg">
 					<FormSwitcher currentStep={step} setStep={setStep} />
 					<Divider />
 					<div
@@ -146,8 +147,10 @@ const Editor = () => {
 					</div>
 				</div>
 				{/* Preview */}
-				<div className="bg-grey-four section--padding w-full flex justify-center items-center">
-					<Resume />
+				<div className="bg-grey-four section--padding w-full flex justify-center items-center overflow-hidden">
+					<PanZoom autoCenter enableBoundingBox>
+						<Resume />
+					</PanZoom>
 				</div>
 			</div>
 		</div>

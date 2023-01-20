@@ -9,7 +9,6 @@ import Projects from "../containers/Projects";
 import Certifications from "../containers/Certifications";
 import Extra from "../containers/Extra";
 import Finalize from "../containers/Finalize";
-import Preview from "../containers/Preview";
 import Resume from "../containers/Resume";
 import FormSwitcher from "../components/FormSwitcher";
 import Divider from "../components/Divider";
@@ -67,7 +66,6 @@ const Editor = () => {
 						<Certifications />
 						<Divider />
 						<Extra />
-						<Divider />
 						<Finalize />
 					</div>
 				</div>
